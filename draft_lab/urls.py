@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from hello_name import urls as hello_urls
+import lab_1.urls as lab_1
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include(hello_urls,namespace='hello_name')),
+    url(r'^', include(lab_1,namespace='lab-1')),
 
 ]
