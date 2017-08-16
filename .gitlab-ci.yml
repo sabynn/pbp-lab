@@ -18,7 +18,6 @@ Lab1Deploy:
   stage: deploy
   before_script:
     - gem install dpl
-    - cd Lab1
   script:
     - dpl --provider=heroku --api-key=HEROKU_APIKEY --app=$HEROKU_APP_NAME
   environment:
