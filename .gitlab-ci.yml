@@ -4,7 +4,7 @@ stages:
   - deploy
 
 UnitTestLab1:
-  images: python:3.6
+  image: python:3.6
   stage: test
   before_script:
     - cd Lab1
