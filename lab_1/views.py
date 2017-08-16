@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-mhs_name = '' #Enter Your Name Here
+mhs_name = 'Hafiyyan' #Enter Your Name Here
 
 # Create your views here.
 def index(request):
