@@ -1,16 +1,28 @@
 stages:
   - test
-  - staging
   - deploy
 
 UnitTestLab1:
   image: python:3.6
   stage: test
   before_script:
-    - cd Lab1
+    - cd lab-1
     - pip install -r requirement.txt
     - python manage.py makemigrations
     - python manage.py migrate
   when: on_success
   script:
     - python manage.py test hello_name
+
+Lab1Deploy:
+  image: ruby:2.4
+  stage: deploy
+  before_script:
+    - gem install dpl
+    - cd Lab1
+  script:
+    - dpl --provider=heroku --api-key=HEROKU_APIKEY_HAFIYYAN --app=$HEROKU_APP_NAME
+  environment:
+    name: production
+    url: $HEROKU_APP_HOST
+  when: manual

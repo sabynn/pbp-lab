@@ -22,3 +22,4 @@ class HelloNameUnitTest(TestCase):
         html_response = response.content.decode('utf8')
         self.assertIn('<title>'+mhs_name+'</title>', html_response)
         self.assertIn('<h1>Hello My Name is ' + mhs_name + '</h1>', html_response)
+        self.assertEqual(len(mhs_name),0)
