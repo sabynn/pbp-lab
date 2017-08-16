@@ -19,8 +19,7 @@ Lab1Deploy:
   before_script:
     - gem install dpl
   script:
-    - dpl --provider=heroku --api-key=HEROKU_APIKEY --app=$HEROKU_APP_NAME
+    - dpl --provider=heroku --api-key=$HEROKU_APIKEY --app=$HEROKU_APP_NAME
   environment:
     name: production
     url: $HEROKU_APP_HOST
-  when: manual
