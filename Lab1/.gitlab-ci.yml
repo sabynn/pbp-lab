@@ -1,0 +1,15 @@
+stages:
+  - test
+  - staging
+  - deploy
+
+UnitTestLab1:
+  stage: test
+  before_script:
+    - cd Lab1
+    - pip install -r requirement.txt
+    - python manage.py makemigrations
+    - python manage.py migrate
+  when: on_success
+  script:
+    - python manage.py test hello_name
