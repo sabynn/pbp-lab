@@ -22,5 +22,5 @@ Lab1Deploy:
     - dpl --provider=heroku --app=$HEROKU_APPNAME --api-key=$HEROKU_APIKEY
   environment:
     name: production
-    url: http://djangoppw.herokuapp.com/
+    url: $HEROKU_APP_HOST
 
