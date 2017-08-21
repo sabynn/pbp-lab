@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.views.generic.base import RedirectView
 import lab_1.urls as lab_1
-
+from lab_1.views import index
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include(lab_1,namespace='lab-1')),
-
+    url(r'^lab-1/', include(lab_1,namespace='lab-1')),
+    url(r'^$', index)
 ]
