@@ -1,4 +1,4 @@
-# Lab 0: Introduction to Git and GitLab
+# Lab 1: Introduction to Git (on GitLab) & TDD (Test-Driven Development) with Django
 
 CSGE602022 - Web Design & Programming (Perancangan & Pemrograman Web) @
 Faculty of Computer Science Universitas Indonesia, Odd Semester 2017/2018
@@ -11,9 +11,10 @@ After completing this exercise, students will be able to:
 
 - Remember essential Git commands for individual work
 - Demonstrate essential Git commands for individual work
-- Setup a local Git Repository
-- Setup a Git repository on GitLab
+- Setup a local and online (GitLab) Git repository
 - Setup a remote between local Git repository and its counterpart on GitLab
+- Practice basic TDD development cycle
+- Publish his/her work on a PaaS (Platform-as-a-Service) cloud service provider
 
 ## Introduction
 
@@ -34,7 +35,8 @@ most recent commit. Think of it like a graph in which a node represents a commit
 directed edge(s) represent the connection from a commit to its subsequent commit(s).
 
 > Don't worry if you are not familiar with these terms: *node*, *edge*, and *graph*.
-> You will learn about them in Data Structures & Algorithms course.
+> You can learn about them in Data Structures & Algorithms and Discrete Mathematics
+> course.
 
 Before doing this exercise and any subsequent exercises later, make sure you have
 installed the following tools:
@@ -53,9 +55,9 @@ installed the following tools:
   > INSERT mode).
 
 For brevity, the guides for installing and configuring each tool are omitted from
-this document. You can refer to the linked document in order to read the guide.
+this document. You can refer to the linked sites in order to read the guide.
 
-## Instructions
+## Tutorial: Git & GitLab
 
 1. Start your favourite command-prompt or shell. If you are using Windows, run
 `Git Bash` or `cmd` (only applies if you have added path to git executable into PATH
@@ -212,7 +214,7 @@ uploaded (or pushed).
 6. Check your GitLab repository page. You will see that your files have been
 stored and can be accessed on GitLab.
 
-You can also get (i.e. **clone**) other Git repository to your local machine.
+You can also download (i.e. **clone**) other Git repository to your local machine.
 Let's try making a copy of your repository from GitLab to a different directory
 in your local machine.
 
@@ -271,6 +273,90 @@ repository concurrently. You will learn more about how to use version control
 system in team work environment later in this course and in a more advanced
 course (CS: Advanced Programming, IS: Enterprise-scale Programming).
 
+## Tutorial: Test-Driven Development (TDD) with Django
+
+1. Clone [Repo PPW Tutorial](https://gitlab.com/PPW-2017/Draft-Lab) into a separate directory.
+2. Copy all files and folders from Repo PPW Tutorial into your GitLab repository directory.
+3. To save this progress, just add and push all the files and folders to your GitLab repository. (Use a proper commit message)
+4. Create a **virtual environment** for this tutorial by using this command:
+
+    ```bash
+    python -m venv env
+    ```
+    
+    > Make sure that you executed the command in the root path of the repository.
+5. Activate your virtual environment and install required packages. Note that
+the command for activating virtual environment is different on Windows and
+Unix-based OS.
+
+    Windows:
+    
+    ```bash
+    env/bin/activate
+    pip install -r requirements.txt
+    ```
+
+    Linux & Mac OS:
+
+    ```bash
+    source env/bin/activate
+    pip install -r requirements.txt
+    ```
+6. Use your favourite editor to edit the code (Vim, nano, Notepad++, etc), or use IDE (PyCharm, or IntelliJ IDEA).
+7. Please open file `lab_1/views.py` and find line of code that has `# TODO IMPLEMENT`
+
+    ```python
+    # Enter Your Name Here
+    mhs_name = '' # TODO IMPLEMENT
+
+    # Create your views here.
+    def index(request):
+       response = {'name' : mhs_name}
+       return render(request,'index.html',response)
+    ```
+
+8. Fill your name in that variable.
+9. Run it locally by typing:
+
+    ```bash
+    python manage.py runserver 8000
+    ```
+10. Access your local webserver (`http://localhost:8000`).
+11. See your name is shown in webpage.
+12. When you are done with your tutorial or you want to switch to another
+Python project, do not forget to deactivate your virtual environment. You
+can do so by executing:
+
+    ```bash
+    deactivate
+    ```
+
+## Publish Your App In Heroku
+
+1. Create your Heroku account in [Heroku Website](https://signup.heroku.com/).
+2. Create your apps in heroku (Make sure that your appname is **Unique**).
+3. Go to Gitlab Settings for Pipeline in your Gitlab Repo (*Settings* -> *Pipelines*).
+4. Find Section **Secret Variable**, and try to add these variable to Gitlab *Pipeline*:
+    - **Key** = HEROKU_APPNAME , **Value** = Your Heroku App Name
+    - **Key** = HEROKU_APIKEY , **Value** = Your Heroku API Key (You can find it in *Account Settings* -> *Account* -> *API Key*)
+    - **Key** = HEROKU_APP_HOST , **Value** = Your Heroku App URL
+5. Push your editted code into your repo.
+6. After waiting for some time (2 - 4 minutes), visit your app URL and you can find your web page has been published.
+
+## Checklist
+
+- Creating Your own Gitlab Repo
+    - [ ] Write your Gitlab Repo link in README.md
+- Your web that deployed in Heroku Instance
+    - [ ] Create your Heroku Account
+    - [ ] Write your apps link (`######`.herokuapp.com) in README.md
+- Creating unit tests
+    - [ ] Test whether your page has `<article>` tag that filled with simple paragraph
+- Creating a functionality in Django framework and content in HTML
+    - [ ] Create new URL for your own page
+    - passing paragraph data from `views.py` to template HTML
+    - [ ] Use data that passed from `views.py` and use it as a content for `<article>` tag HTML5 tag
+
 ## Additional Resources
 
 - [Git Tutorials & Training by Atlassian](https://www.atlassian.com/git/tutorials)
@@ -278,6 +364,7 @@ course (CS: Advanced Programming, IS: Enterprise-scale Programming).
 - [Pro Git e-Book by Scott Chacon & Ben Straub](https://git-scm.com/book/en/v2)
 - [Graph theory](http://think-like-a-git.net/sections/graph-theory.html) and
 [its application in Git](http://think-like-a-git.net/sections/graphs-and-git.html)
+- [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/)
 
 ## Credits
 

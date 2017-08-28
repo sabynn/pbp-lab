@@ -12,6 +12,10 @@ UnitTestLab1:
   when: on_success
   script:
     - python manage.py test lab_1
+    - coverage run --include='lab_1/*' manage.py test lab_1
+    - coverage report -m
+  only:
+    - master
 
 Lab1Deploy:
   image: ruby:2.4
@@ -23,4 +27,6 @@ Lab1Deploy:
   environment:
     name: production
     url: $HEROKU_APP_HOST
+  only:
+    - master
 
