@@ -273,26 +273,41 @@ repository concurrently. You will learn more about how to use version control
 system in team work environment later in this course and in a more advanced
 course (CS: Advanced Programming, IS: Enterprise-scale Programming).
 
-## Tutorial: Test-Driven Development (TDD) with Django
+## Tutorial: Introduction to Test-Driven Development (TDD) with Django
 
-1. Clone [Repo PPW Tutorial](https://gitlab.com/PPW-2017/Draft-Lab) into a separate directory.
-2. Copy all files and folders from Repo PPW Tutorial into your GitLab repository directory.
-3. To save this progress, just add and push all the files and folders to your GitLab repository. (Use a proper commit message)
-4. Create a **virtual environment** for this tutorial by using this command:
+1. Download [Repo PPW Tutorial](https://gitlab.com/PPW-2017/Draft-Lab) and
+extract it to a different directory.
+2. Create a new project on GitLab where you will store this exercise.
+
+  > Make sure the project repository is different from previous tutorial, i.e.
+  > the Git introduction tutorial.
+3. Go to the directory where you extracted the Repo PPW Tutorial and initialize
+the directory into a Git repository.
+4. Add new Git remote that link the local Repo PPW Tutorial repository to your
+new GitLab repository.
+
+At this stage, you are now ready to continue the tutorial. To save your progress,
+please add any new/modified file(s) and folder(s) to local Git repository and
+save it as one or more commits. Once you are done or want to ensure your progress
+is stored on GitLab, use `git push` to push your commits.
+
+Now please proceed to the instructions as follows.
+
+1. Create a **virtual environment** for this tutorial by using this command:
 
     ```bash
     python -m venv env
     ```
     
     > Make sure that you executed the command in the root path of the repository.
-5. Activate your virtual environment and install required packages. Note that
+2. Activate your virtual environment and install required packages. Note that
 the command for activating virtual environment is different on Windows and
 Unix-based OS.
 
     Windows:
     
     ```bash
-    env/bin/activate
+    env\Scripts\activate.bat
     pip install -r requirements.txt
     ```
 
@@ -302,28 +317,32 @@ Unix-based OS.
     source env/bin/activate
     pip install -r requirements.txt
     ```
-6. Use your favourite editor to edit the code (Vim, nano, Notepad++, etc), or use IDE (PyCharm, or IntelliJ IDEA).
-7. Please open file `lab_1/views.py` and find line of code that has `# TODO IMPLEMENT`
+3. Use your favourite editor to edit the code (Vim, VS Code, Atom) or use IDE (PyCharm).
+4. Please open file `lab_1/views.py` and find line of code that has `# TODO IMPLEMENT`
 
     ```python
-    # Enter Your Name Here
-    mhs_name = '' # TODO IMPLEMENT
+    # Enter your name here
+    mhs_name = '' # TODO Implement this
 
     # Create your views here.
     def index(request):
-       response = {'name' : mhs_name}
-       return render(request,'index.html',response)
+       response = {'name': mhs_name}
+       return render(request, 'index.html', response)
     ```
-
-8. Fill your name in that variable.
-9. Run it locally by typing:
+5. Fill your name in `mhs_name` variable.
+6. Let's try running the Web locally in your machine. Run it by typing:
 
     ```bash
     python manage.py runserver 8000
     ```
-10. Access your local webserver (`http://localhost:8000`).
-11. See your name is shown in webpage.
-12. When you are done with your tutorial or you want to switch to another
+
+    > Ensure the current active directory in your shell/command-prompt
+    > is in the folder containing `manage.py` before executing the command
+    > above
+7. Access your local Web server by using your favorite Web browser. Put the
+address into your browser: `http://localhost:8000`
+8. See your name is shown in Web page rendered by browser.
+9. When you are done with your tutorial or you want to switch to another
 Python project, do not forget to deactivate your virtual environment. You
 can do so by executing:
 
@@ -331,31 +350,42 @@ can do so by executing:
     deactivate
     ```
 
-## Publish Your App In Heroku
+## Tutorial: Deploy to Heroku
+
+Continuing from previous instructions, now you are going to deploy your
+Web site so all people can see it. But before that, you need to setup
+an account on a cloud service provider named Heroku.
 
 1. Create your Heroku account in [Heroku Website](https://signup.heroku.com/).
 2. Create your apps in heroku (Make sure that your appname is **Unique**).
-3. Go to Gitlab Settings for Pipeline in your Gitlab Repo (*Settings* -> *Pipelines*).
+3. Go to GitLab Settings for Pipeline in your Gitlab Repo (*Settings* -> *Pipelines*).
 4. Find Section **Secret Variable**, and try to add these variable to Gitlab *Pipeline*:
     - **Key** = HEROKU_APPNAME , **Value** = Your Heroku App Name
     - **Key** = HEROKU_APIKEY , **Value** = Your Heroku API Key (You can find it in *Account Settings* -> *Account* -> *API Key*)
     - **Key** = HEROKU_APP_HOST , **Value** = Your Heroku App URL
-5. Push your editted code into your repo.
-6. After waiting for some time (2 - 4 minutes), visit your app URL and you can find your web page has been published.
+
+Now back to your local Git repository, i.e. the one that stores Repo PPW Tutorial,
+and do the following.
+
+1. Add and commit your latest update to your local Git repository.
+2. Push your latest commit to GitLab.
+3. After waiting for some time (2 - 4 minutes), visit your app URL and you can
+find your web page has been published.
 
 ## Checklist
 
-- Creating Your own Gitlab Repo
-    - [ ] Write your Gitlab Repo link in README.md
-- Your web that deployed in Heroku Instance
-    - [ ] Create your Heroku Account
-    - [ ] Write your apps link (`######`.herokuapp.com) in README.md
-- Creating unit tests
-    - [ ] Test whether your page has `<article>` tag that filled with simple paragraph
-- Creating a functionality in Django framework and content in HTML
-    - [ ] Create new URL for your own page
-    - passing paragraph data from `views.py` to template HTML
-    - [ ] Use data that passed from `views.py` and use it as a content for `<article>` tag HTML5 tag
+1. Creating Your own Gitlab Repo
+    1. [ ] Write your Gitlab Repo link in README.md
+2. Your web that deployed in Heroku Instance
+    1. [ ] Create your Heroku Account
+    2. [ ] Write your apps link (`######`.herokuapp.com) in README.md
+3. Creating unit tests
+    1. [ ] Test whether your page contains your name
+4. Creating a functionality in Django framework and content in HTML
+    1. [ ] Implement a new function to calculate age
+    2. [ ] Calculate your age by passing your birth year into the function
+    3. [ ] Pass the return value from age calculation into the template HTML
+    4. [ ] The return value is rendered within an `<article>` HTML5 tag
 
 ## Additional Resources
 
@@ -372,5 +402,5 @@ This document is based on [Exercise 0: Introduction to Git](https://gitlab.com/C
 written by Advanced Programming 2017 Teaching Team ([@addianto](https://gitlab.com/addianto),
 [@muhammad.ardhan](https://gitlab.com/muhammad.ardhan), [@fbenarto](https://gitlab.com/fbenarto),
 et al.). The section about branching and handling merge conflicts are omitted
-in this document to make sure the tutorial can be completed by students during
+in this document to make sure the Git tutorial can be completed by students during
 Web Design & Programming lab session.

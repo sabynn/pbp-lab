@@ -1,11 +1,13 @@
 from django.shortcuts import render
 
-#Enter Your Name Here
-mhs_name = '' # TODO IMPLEMENT
+# Enter your name here
+mhs_name = '' # TODO Implement this
 
 # Create your views here.
 def index(request):
+    response = {'name': mhs_name}
+    return render(request, 'index.html', response)
 
-
-    response = {'name' : mhs_name}
-    return render(request,'index.html',response)
+# TODO Implement this to complete last checklist
+def calculate_age(birth_year):
+    pass
