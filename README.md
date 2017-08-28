@@ -379,9 +379,7 @@ find your web page has been published.
 2. Your web that deployed in Heroku Instance
     1. [ ] Create your Heroku Account
     2. [ ] Write your apps link (`######`.herokuapp.com) in README.md
-3. Creating unit tests
-    1. [ ] Test whether your page contains your name
-4. Creating a functionality in Django framework and content in HTML
+3. Creating a functionality in Django framework and content in HTML
     1. [ ] Implement a new function to calculate age
     2. [ ] Calculate your age by passing your birth year into the function
     3. [ ] Pass the return value from age calculation into the template HTML
