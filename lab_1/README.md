@@ -327,7 +327,7 @@ Unix-based OS.
     # Create your views here.
     def index(request):
        response = {'name': mhs_name}
-       return render(request, 'index.html', response)
+       return render(request, index_lab1.html, response)
     ```
 5. Fill your name in `mhs_name` variable.
 6. Let's try running the Web locally in your machine. Run it by typing:

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Family</title>
+</head>
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+    .tablemember{
+        font-size: 20px;
+        font-family: "Comic Sans MS";
+
+    }
+    .status{
+        color: #6650ff;
+    }
+    .name{
+        color: #ff102c;
+    }
+</style>
+<body>
+    <h3 style="text-align: center">Hi all, This is my family member</h3>
+    <table align="center" style="text-align: center">
+        {% for family_member,name in family.items %}
+            <tr>
+                <td class="tablemember status">{{ family_member }}</td>
+                <td class="tablemember name">{{ name }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -9,7 +9,7 @@ import unittest
 
 # Create your tests here.
 
-class HelloNameUnitTest(TestCase):
+class Lab1UnitTest(TestCase):
 
     def test_hello_name_is_exist(self):
         response = Client().get('/')
