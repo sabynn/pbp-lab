@@ -8,15 +8,14 @@
     table, th, td {
         border: 1px solid black;
     }
-    .tablemember{
+    .status{
         font-size: 20px;
         font-family: "Comic Sans MS";
-
-    }
-    .status{
         color: #6650ff;
     }
     .name{
+        font-size: 20px;
+        font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
         color: #ff102c;
     }
 </style>
@@ -25,8 +24,8 @@
     <table align="center" style="text-align: center">
         {% for family_member,name in family.items %}
             <tr>
-                <td class="tablemember status">{{ family_member }}</td>
-                <td class="tablemember name">{{ name }}</td>
+                <td class="status">{{ family_member }}</td>
+                <td class="name">{{ name }}</td>
             </tr>
         {% endfor %}
     </table>
