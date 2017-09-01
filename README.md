@@ -275,12 +275,18 @@ course (CS: Advanced Programming, IS: Enterprise-scale Programming).
 
 ## Tutorial: Introduction to Test-Driven Development (TDD) with Django
 
-1. Clone [Repo PPW Tutorial](https://gitlab.com/PPW-2017/Draft-Lab) 
-from one of your working station (PC Lab, laptop or homedesktop). 
-Please remember to change the **origin** before you push your works. (instruction 4)
-It is possible to download and extract it to a different directory 
-but you will have to write some of 
-the hidden file such as gitlab pipeline configuration yourself. 
+1. Get a copy of [Repo PPW Tutorial](https://gitlab.com/PPW-2017/Draft-Lab) 
+in one of your working station (PC Lab, laptop or homedesktop) by executing the clone command. 
+
+    > Please remember to change the **origin** before you push your works. (instruction 4).
+    > If you forgot, your **push** will be rejected because the **master branch** of this course repository 
+    > is protected. 
+    > It is possible to download and extract it to a different directory 
+    > but you will have to write some of 
+    > the hidden file such as gitlab pipeline configuration yourself. 
+    > Failure to do this will end up to have a fail pipelines. 
+    > If your pipelines failed, you will not be able to 
+    > find your webpage in the heroku. 
 2. Create a new project on GitLab where you will store this exercise.
 
     > Make sure the project repository is different from previous tutorial, i.e.
@@ -393,6 +399,10 @@ find your web page has been published.
     2. [ ] Calculate your age by passing your birth year into the function
     3. [ ] Pass the return value from age calculation into the template HTML
     4. [ ] The return value is rendered within an `<article>` HTML5 tag
+4. Check your pipelines.
+    1. [ ] Make sure the test stage is success, check the console by clicking the unit test. Makesure the coverage is 100%
+    2. [ ] Make sure the deployment script has successfully deploy your webpage to heroku. 
+    Check if there are some warning messages in the console.
 
 ## Additional Resources
 
