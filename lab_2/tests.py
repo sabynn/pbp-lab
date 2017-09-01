@@ -22,13 +22,14 @@ class Lab2UnitTest(TestCase):
         self.assertIsNotNone(family_dict)
 
         #Checking all element in family member
-        for family_member, name in family_dict.items():
+        for family_member in family_dict:
 
             #Name cannot be None
-            self.assertIsNotNone(name)
+            self.assertIsNotNone(family_member['name'])
+            self.assertIsNotNone(family_member['status'])
 
             #Name cannot be integer
-            self.assertIsNot(type(name),type(8))
+            self.assertIsNot(type(family_member['name']),type(8))
 
     def test_lab2_family_member_shown_in_page(self):
         request = HttpRequest()
@@ -36,7 +37,12 @@ class Lab2UnitTest(TestCase):
         html_response = response.content.decode('utf8')
 
         # Checking all family member is shown in page
-        for family_member, name in family_dict.items():
-            self.assertIn('<td class="status">' + family_member + '</td>', html_response)
-            self.assertIn('<td class="name">' + name + '</td>', html_response)
+        for family_member in family_dict:
+            self.assertIn('<td class="status">' + family_member['status'] + '</td>', html_response)
+            self.assertIn('<td class="name">' + family_member['name'] + '</td>', html_response)
 
+    def test_lab2_have_button_next(self):
+        request = HttpRequest()
+        response = index(request)
+        html_response = response.content.decode('utf8')
+        self.assertIn('<button id="next_button" name="first_pop_button" class="btn btn-primary">Go to Lab 2 Addon</button>', html_response)
