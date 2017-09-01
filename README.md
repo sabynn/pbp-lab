@@ -275,16 +275,25 @@ course (CS: Advanced Programming, IS: Enterprise-scale Programming).
 
 ## Tutorial: Introduction to Test-Driven Development (TDD) with Django
 
-1. Download [Repo PPW Tutorial](https://gitlab.com/PPW-2017/Draft-Lab) and
-extract it to a different directory.
+1. Clone [Repo PPW Tutorial](https://gitlab.com/PPW-2017/Draft-Lab) 
+from one of your working station (PC Lab, laptop or homedesktop). 
+Please remember to change the **origin** before you push your works. (instruction 4)
+It is possible to download and extract it to a different directory 
+but you will have to write some of 
+the hidden file such as gitlab pipeline configuration yourself. 
 2. Create a new project on GitLab where you will store this exercise.
 
-  > Make sure the project repository is different from previous tutorial, i.e.
-  > the Git introduction tutorial.
-3. Go to the directory where you extracted the Repo PPW Tutorial and initialize
-the directory into a Git repository.
-4. Add new Git remote that link the local Repo PPW Tutorial repository to your
+    > Make sure the project repository is different from previous tutorial, i.e.
+    > the Git introduction tutorial.
+3. Go to the directory where you have the Repo PPW Tutorial.
+4. Set the new Git remote that link the local Repo PPW Tutorial repository to your
 new GitLab repository.
+
+    ```bash
+    git remote set-url origin https://gitlab.com/[USERNAME]/[REPOSITORY].git
+    ```
+   
+    > make sure you change the [USERNAME] and [REPOSITORY] with your own
 
 At this stage, you are now ready to continue the tutorial. To save your progress,
 please add any new/modified file(s) and folder(s) to local Git repository and
