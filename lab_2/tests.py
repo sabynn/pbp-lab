@@ -13,10 +13,6 @@ class Lab2UnitTest(TestCase):
         response = Client().get('/lab-2/')
         self.assertEqual(response.status_code,200)
 
-    def test_root_url_now_is_using_index_page_from_lab_2(self):
-        response = Client().get('/')
-        self.assertEqual(response.status_code, 200)
-
     def test_lab2_using_index_func(self):
         found = resolve('/lab-2/')
         self.assertEqual(found.func, index)

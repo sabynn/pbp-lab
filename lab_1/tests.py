@@ -12,11 +12,11 @@ import unittest
 class Lab1UnitTest(TestCase):
 
     def test_hello_name_is_exist(self):
-        response = Client().get('/')
+        response = Client().get('/lab-1/')
         self.assertEqual(response.status_code,200)
 
     def test_using_index_func(self):
-        found = resolve('/')
+        found = resolve('/lab-1/')
         self.assertEqual(found.func, index)
 
     def test_name_is_changed(self):
