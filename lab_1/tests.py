@@ -38,4 +38,4 @@ class Lab1UnitTest(TestCase):
         request = HttpRequest()
         response = index(request)
         html_response = response.content.decode('utf8')
-        self.assertRegex(html_response, r'<article>I am [1-9]\d+ years old</article>')
+        self.assertRegex(html_response, r'<article>I am [0-9]\d+ years old</article>')

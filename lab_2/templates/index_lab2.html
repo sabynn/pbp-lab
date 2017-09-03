@@ -5,45 +5,42 @@
     <title>Family</title>
 </head>
 <style>
-    table, th, td {
-        border: 1px solid black;
-    }
     .status{
         font-size: 20px;
         font-family: "Comic Sans MS";
         color: #6650ff;
+        text-align: justify;
+        text-justify: inter-word;
     }
     .name{
         font-size: 20px;
         font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
         color: #ff102c;
     }
+    .center_screen {
+        position: absolute;
+        width: 500px;
+        height: 50px;
+        top: 50%;
+        left: 50%;
+        margin-left: -250px; /* margin is -0.5 * dimension */
+        margin-top: -25px;
+    }
+    #href_bio{
+
+    }
 </style>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<body style="background-color: aqua">
-    <h3 style="text-align: center">Hi all, This is my family member</h3>
-    <table align="center" style="text-align: center">
-        <tr>
-            <td class="status">Status</td>
-            <td class="name">Name</td>
-        </tr>
-        {% for family_member in family %}
-            <tr>
-                <td class="status">{{ family_member.status }}</td>
-                <td class="name">{{ family_member.name }}</td>
-            </tr>
-        {% endfor %}
-    </table>
-    <br><br>
-    <div class="col-md-12 text-center">
-        <button id="next_button" name="first_pop_button" class="btn btn-primary">Go to Lab 2 Addon</button>
-    </div>
+<body style="background-color: lightgray">
+    <div class="center_screen">
+        <p class="status">Hello, this is {{ name }}. {{ content }} Check my <a id="href_bio">Biography</a>.</p>
+	</div>
 </body>
 <script>
     $(document).ready(function(){
-        $("#next_button").click(function(){
+        $("#href_bio").click(function(){
             window.location.href = '/lab-2-addon/'
         });
 
