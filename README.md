@@ -26,7 +26,8 @@ code snippets.
 3. [Initial Setup](#initial-setup)
 4. [Doing the Tutorial](#doing-the-tutorial)
 5. [Pulling Updates From Upstream](#pulling-updates-from-upstream)
-6. [Grading Scheme & Demonstration](#grading-scheme-demonstration)
+6. [Show Code Coverage in Gitlab](#show-code-coverage-in-gitlab)
+7. [Grading Scheme & Demonstration](#grading-scheme-demonstration)
 
 
 ## TL;DR
@@ -124,7 +125,7 @@ upstream are merged succesfully to your own `master` branch, do not
 forget to push it back to your own GitLab repository. Use Git command:
 `git push origin master`
 
-## Set Code Coverage to be Shown in Gitlab
+## Show Code Coverage in Gitlab
 
 1. Go to Pipeline Settings (`Settings -> Pipelines`)
 2. Go to section Coverage Settings (`Pipelines -> Test coverage parsing`)
