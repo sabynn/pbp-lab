@@ -95,7 +95,7 @@ directory that containing Lab 2 README.md.
 2. To ensure your work regarding Lab 2 problem is isolated from
 your other attempts at other problems, create a new apps
 specifically for working on Lab 2 problem. Use Python command:
-`python manage.py startapp Lab 2`
+`python manage.py startapp lab_2`
 3. Read the README file carefully because It contains set of tasks and Instructions that you can work on.
 4. Do the tutorial.
 5. Use `git add` or `git rm` to stage/unstage files that you want to
