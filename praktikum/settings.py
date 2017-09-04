@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'draft_lab.urls'
+ROOT_URLCONF = 'praktikum.urls'
 
 TEMPLATES = [
     {
@@ -69,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'draft_lab.wsgi.application'
+WSGI_APPLICATION = 'praktikum.wsgi.application'
 
 
 # Database
