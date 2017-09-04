@@ -25,8 +25,8 @@ class Lab2UnitTest(TestCase):
         self.assertTrue(len(landing_page_content) >= 30)
 
     def test_landing_page_is_completed(self):
-        def test_index_contains_age(self):
-            request = HttpRequest()
-            response = index(request)
-            html_response = response.content.decode('utf8')
-            self.assertIn(html_response, '<p class="status">Hello, this is '+ mhs_name +'. '+ landing_page_content +' Check my <a id="href_bio">Biography</a>.</p>')
+        request = HttpRequest()
+        response = index(request)
+        html_response = response.content.decode('utf8')
+        self.assertIn('Hello, this is '+ mhs_name +'.', html_response)
+        self.assertIn(landing_page_content, html_response)

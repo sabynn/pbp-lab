@@ -126,6 +126,16 @@ main are merged succesfully to your own `master` branch, do not
 forget to push it back to your own GitLab repository. Use Git command:
 `git push origin master`
 
+## Set Code Coverage to be Shown in Gitlab
+
+1. Go to Pipeline Settings (`Settings -> Pipelines`)
+2. Go to section Coverage Settings (`Pipelines -> Test coverage parsing`)
+3. Write this Regex in textbox `Test Coverage Parsing` 
+
+    > TOTAL\s+\d+\s+\d+\s+(\d+)%
+
+4. Now your pipelines page will show your Code Coverage
+
 ## Grading Scheme & Demonstration
 
 Weekly tutorials contribute **10%** to the final grade of this course.
