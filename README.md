@@ -80,9 +80,7 @@ your repository page.
 
 If you do [Lab 1](lab_1/README.md) Tutorial
 
-1. then you just need to add this Repository link to your remote 
-(`git remote add upstream https://gitlab.com/PPW-2017/Draft-Lab`)
-2. Add new remote called **upstream** that points to the original
+1. Add new remote called **upstream** that points to the original
 GitLab repository. Use Git command: `git remote add upstream git remote add upstream https://gitlab.com/PPW-2017/Draft-Lab`
 3. Tell your TA about your GitLab username and URL to your tutorial
 repository so s/he can grade it later.
