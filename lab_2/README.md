@@ -133,6 +133,13 @@ Perhatikan struktur _project_ Django, terdapat sub-dir dengan nama sama persis d
     wsgi.py
 ```
 
+Secara sederhana, format penulisan utk URL pada Django ialah `url(regex,view, kwargs=None, name=None)`
+
+- regex ialah _pattern_ pattern yang akan dicocokkan 
+- `view` ialah fungsi yang untuk memproses _request_ dan mengatur tampilan. 
+
+> Untuk mengetahui lebih lanjut format penulisan urls, cek [link] (https://docs.djangoproject.com/en/1.11/_modules/django/conf/urls/#url) berikut 
+
 Berkas `urls.py` pada direktori ini adalah contoh URLconf yang disediakan oleh Django, yang dapat digunakan untuk 
 melakukan `routing` ke `apps` Django lainnya. Contoh untuk membuat `routing` ke `app` lain , berdasarkan `lab_1` yang sudah dikerjakan (cek repo):
 
@@ -153,16 +160,35 @@ Pada contoh di atas, dalam direkotri `lab_1` diasumsikan ada berkas `urls.py`. T
 untuk mengakses isi direktori tersebut. 
 
 Penjelasan ringkas: 
-- `import lab_1.urls as lab_1` --> `lab_1.urls` diganti namanya dengan `lab_1` agar lebih sederhana dalam penulisan
-- baris kode `include(lab_1, ... )` memanggil berkas `lab_1.urls` 
 
-
-
-Pada bagian `url(r'^lab-1/', include(lab_1, namespace='lab-1'))`, menggunakan _regex_ `^` , yang artinya untuk setiap
+- Baris kode `url(r'^lab-1/', include(lab_1, namespace='lab-1'))`, menggunakan _regex_ `^` , yang artinya untuk setiap
 URL dengan awalan `lab-1/` yang menangani URL tersebut adalah berkas `lab_1.urls`.
-Contoh: `http://localhost/lab-1/` akan ditangani oleh berkas `lab_1.urls` 
+- alamat `http://localhost/lab-1/` akan ditangani oleh berkas `lab_1.urls` 
+- `import lab_1.urls as lab_1` --> `lab_1.urls` diganti namanya dengan `lab_1`, 
+ sehingga baris kode `include(lab_1, ... )` tetap memanggil berkas `lab_1.urls`
 
-> (sumber: https://gitlab.com/PPW-2017/Draft-Lab/blob/master/draft_lab/urls.py )
+> sumber kode  : https://gitlab.com/PPW-2017/Draft-Lab/blob/master/draft_lab/urls.py
+
+Selanjutnya untuk menampilkan `views`, kita harus melihat isi berkas dari `lab_1.urls` : 
+
+```
+from django.conf.urls import url
+from .views import index
+#url for app
+urlpatterns = [
+    url(r'^$', index, name='index'),
+]
+```
+Penjelasan ringkas : 
+- _regex_ pada url(`r'^$'`) berarti _input_ apapun akan dialihkan ke sebuah `views` bernama `index`
+- `index` juga dapat diganti dengan `views.index`, hal ini sama saja, fungsinya untuk memproses tampilan. 
+
+Pada berkas `views.py` diasumsikan (dan seharusnya) ada fungsi bernama `index` atau `def index(request)`.
+Kemudian pada berkas `views.py` ini akan diatur bagaimana _request_ akan diproses sebelum ditampilkan. 
+Perhatikan fungsi `render` yang ada pada berkas `views.py`, terdapat berkas `HTML`.
+Direktori yang menyimpan berkas HTML yang akan dipanggil oleh `views` adalah `templates`. 
+
+> INGAT: penulisan variabel, parameter, fungs, dsb, pada Django _case-sensitif_. Jadi harus teliti dalam menulisakan kode
 
 > sumber: 
 >
