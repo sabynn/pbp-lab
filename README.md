@@ -137,34 +137,26 @@ forget to push it back to your own GitLab repository. Use Git command:
 
 ## Grading Scheme & Demonstration
 
-Weekly tutorials contribute **10%** to the final grade of this course.
+Weekly tutorials contribute **20%** to the final grade of this course.
 For each exercises, student can obtain grade ranging from **A (4)** to
 **E (0)**. The grading scheme is as follows:
 
-1. **A** if student completed **all mandatory and optional tasks**
-2. **B** if student completed **all mandatory tasks** and **at least
-    half of the optional tasks**
-3. **C** if student completed **at least half of the mandatory tasks**
-4. **D** if student did not demonstrate their work to teaching
-    assistant, **regardless the completion of the tasks**
+1. **A** if student completed **all checklists**
+2. **B** if student completed **80% of checklist**
+3. **C** if student completed **at least half of the checklist**
+4. **D** if student completed **30% of checklist**
 5. **E** if student skipped the tutorial by doing nothing, e.g.
-    no signs of work or branch related to the tutorial in the
-    repository
+    no signs of work to the tutorial in the repository
 
 All students required to demonstrate their work to teaching assistant.
 This demonstration mechanism applies for both students in Regular and
 International classes:
 
-1. Demonstrations should be done no later than the end of Friday of the
+1. Demonstrations should be done no later than the end of the
     lab session week. The time allocation for the demonstration can be
     adjusted to the availability of the Teaching Assistants. As long as
-    the demonstration is still done in Friday, students have the chance
+    the demonstration is still done before **your lab session**, students have the chance
     to achieve maximum score for the tutorial.
-2. If the demonstration is done after Friday and before the following
-    Tuesday, then the maximum score the student can get for that tutorial
-    is **B**, equivalent with attending the lab session and only doing the
-    mandatory tasks.
-3. For International class students, demonstration will be done using
-    the latest commit made by the student before 12:00 AM of Friday in
-    the same week of the lab session. In other words, students can still
-    work on the tutorial and push their commits until Thursday 23:59 PM.
+2. If the demonstration is done after **your lab session**, you have to demonstrate
+ your work to your **lecturer** and your scrone won't reach maximum point eventhough you 
+ **do all checklists**
