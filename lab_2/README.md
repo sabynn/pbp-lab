@@ -37,7 +37,7 @@ Dengan kata lain, setiap _Django project_ sebaiknya memiliki _virtualenv_ nya se
 Struktur project yang dihasilkan, 
 1. `virtualenv` sebagai sub-dir _project_ <NAMA-PROJECT>
 
-``` 
+``` python
 - <NAMA-PROJECT>
     - manage.py
     - <NAMA-PROJECT>
@@ -54,7 +54,7 @@ Struktur project yang dihasilkan,
 ```
 2. `virtualenv` satu level dengan _project_ <NAMA-PROJECT>
 
-```
+```python
 - virtualenv
     ...
 - <NAMA-PROJECT>
@@ -85,7 +85,7 @@ Dalam satu _project_ bisa terdapat banyak `apps`. Untuk membuat suatu app, gunak
 > Coba perintah `ls` (linux) atau `dir` (windows) 
 
 Struktur umum dari suatu `apps` ialah :
-```
+```python
     - <app-name>
         __init__.py
         admin.py
@@ -100,7 +100,7 @@ Struktur umum dari suatu `apps` ialah :
 ```
 
 > Suatu `app` dianggap aktif atau terpakai jika `app` tersebut didaftarkan di pengaturan `INSTALLED_APP`
-> pada berkas `settings.py` (penjelasan di bawah).
+> pada berkas `settings.py` (ada pada direktori pengaturan _project_, yang nama direktorinya sama dengan nama _project_ Django)
 
 Secara _default_ , tidak ada berkas `urls.py` karena Django memberikan kebebasan untuk membuat _routing_ sesuai kebutuhan pengembang.
 Namun untuk _best practice_ dan kemudahan pengembangan, berkas `urls.py` dibuat manual untuk setiap `app`. Berkas `urls.py` satu level
@@ -124,7 +124,7 @@ pola atau _pattern_ yang Django akan coba cocokkan untuk menemukan `views` (tamp
 
 Perhatikan struktur _project_ Django, terdapat sub-dir dengan nama sama persis dengan nama project yang dibuat, dengan struktur : 
 
-```
+```python
 <NAMA-PROJECT>
     __init__.py
     settings.py
@@ -142,7 +142,7 @@ Secara sederhana, format penulisan utk URL pada Django ialah `url(regex,view, kw
 Berkas `urls.py` pada direktori ini adalah contoh URLconf yang disediakan oleh Django, yang dapat digunakan untuk 
 melakukan `routing` ke `apps` Django lainnya. Contoh untuk membuat `routing` ke `app` lain , berdasarkan `lab_1` yang sudah dikerjakan (cek repo):
 
-``` 
+```python 
 ...
 from django.conf.urls import url, include
 import lab_1.urls as lab_1
@@ -170,7 +170,7 @@ URL dengan awalan `lab-1/` yang menangani URL tersebut adalah berkas `lab_1.urls
 
 Selanjutnya untuk menampilkan `views`, kita harus melihat isi berkas dari `lab_1.urls` : 
 
-```
+```python
 from django.conf.urls import url
 from .views import index
 #url for app
@@ -180,12 +180,12 @@ urlpatterns = [
 ```
 Penjelasan ringkas : 
 - _regex_ pada url(`r'^$'`) berarti _input_ apapun akan dialihkan ke sebuah `views` bernama `index`
-- `index` juga dapat diganti dengan `views.index`, hal ini sama saja, fungsinya untuk memproses tampilan. 
+- `index` juga dapat diganti dengan `views.index` tapi sama saja, fungsinya untuk memproses tampilan
 
-Pada berkas `views.py` diasumsikan (dan seharusnya) ada fungsi bernama `index` atau `def index(request)`.
-Kemudian pada berkas `views.py` ini akan diatur bagaimana _request_ akan diproses sebelum ditampilkan. 
+Pada berkas `views.py` diasumsikan (dan seharusnya) ada fungsi bernama `index` atau `def index(request):`.
+Pada berkas `views.py` ini, juga akan diatur bagaimana _request_ akan diproses sebelum ditampilkan. 
 Perhatikan fungsi `render` yang ada pada berkas `views.py`, terdapat berkas `HTML`.
-Direktori yang menyimpan berkas HTML yang akan dipanggil oleh `views` adalah `templates`. 
+Direktori `templates` berfgunsi untuk menyimpan berkas HTML yang dipanggil oleh `views`.
 
 > INGAT: penulisan variabel, parameter, fungs, dsb, pada Django _case-sensitif_. Jadi harus teliti dalam menulisakan kode
 
