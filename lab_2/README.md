@@ -19,7 +19,7 @@ _Django_ merupakan salah satu _framework_ yang menggunakan bahasa pemrograman _p
 _Framework_ sangat berguna dalam pengembangan web karena sudah menyediakan komponen-komponen 
 yang dibutuhkan untuk membuat dan menjalankan suatu web, tanpa harus mulai dari nol. 
 Sebelum memulai pengembangan web menggunakan Django, penting untuk memahami apa itu `virtual environemnt` (virtualenv).
-Virtual environment (lingkungan virtual) berfungsi untuk memisahkan pengaturan dan _package_ yang di_install_ 
+Virtual environment (lingkungan virtual) berfungsi untuk memisahkan pengaturan dan _package_ yang di _install_  
 pada setiap _Django project_ sehingga perubahan yang dilakukan pada satu _project_ tidak mempengaruhi _project_ lainnya. 
 Dengan kata lain, setiap _Django project_ sebaiknya memiliki _virtualenv_ nya sendiri. 
 
@@ -27,7 +27,6 @@ Dengan kata lain, setiap _Django project_ sebaiknya memiliki _virtualenv_ nya se
 >
 > Sebelum memulai pengembangan web, biasakan untuk selalu mengaktifkan virtualenv terlebih dahulu.
 > 
-> -- <cite>https://tutorial.djangogirls.org/en/django/</cite>
 
 ## Struktur _Django Project_
 
