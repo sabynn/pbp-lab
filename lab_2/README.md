@@ -166,9 +166,9 @@ URL dengan awalan `lab-1/` yang menangani URL tersebut adalah berkas `lab_1.urls
 - `import lab_1.urls as lab_1` --> `lab_1.urls` diganti namanya dengan `lab_1`, 
  sehingga baris kode `include(lab_1, ... )` tetap memanggil berkas `lab_1.urls`
 
-> sumber kode  : https://gitlab.com/PPW-2017/Draft-Lab/blob/master/draft_lab/urls.py
+> sumber kode  : https://gitlab.com/PPW-2017/ppw-lab/blob/master/lab_1/urls.py
 
-Selanjutnya untuk menampilkan `views`, kita harus melihat isi berkas dari `lab_1.urls` : 
+Selanjutnya untuk melihat penggunaan `views`, kita harus melihat isi berkas dari `lab_1.urls` : 
 
 ```python
 from django.conf.urls import url
@@ -187,9 +187,9 @@ Pada berkas `views.py` ini, juga akan diatur bagaimana _request_ akan diproses s
 Perhatikan fungsi `render` yang ada pada berkas `views.py`, terdapat berkas `HTML`.
 Direktori `templates` berfgunsi untuk menyimpan berkas HTML yang dipanggil oleh `views`.
 
+> Untuk memastikan hal tersebut, cek penggunaan `views` pada https://gitlab.com/PPW-2017/ppw-lab/blob/master/lab_1/views.py 
+>
 > INGAT: penulisan variabel, parameter, fungs, dsb, pada Django _case-sensitif_. Jadi harus teliti dalam menulisakan kode
-
-> sumber: 
 >
 > Penjelasan ringkas mengenai URL Django : <cite> https://tutorial.djangogirls.org/en/django_urls/ </cite>
 >
