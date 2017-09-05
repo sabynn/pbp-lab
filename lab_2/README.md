@@ -24,10 +24,9 @@ pada setiap _Django project_ sehingga perubahan yang dilakukan pada satu _projec
 Dengan kata lain, setiap _Django project_ sebaiknya memiliki _virtualenv_ nya sendiri. 
 
 > Pastikan saat pembuatan virtualenv, yang digunakan adalah python versi 3 (cek dengan `python --version` )
-> Sebelum memulai pengembangan web, biasakan untuk selalu mengaktifkan virtualenv terlebih dahulu.
-
-> Quote here.
 >
+> Sebelum memulai pengembangan web, biasakan untuk selalu mengaktifkan virtualenv terlebih dahulu.
+> 
 > -- <cite>https://tutorial.djangogirls.org/en/django/</cite>
 
 ## Struktur _Django Project_
@@ -36,7 +35,8 @@ Dengan kata lain, setiap _Django project_ sebaiknya memiliki _virtualenv_ nya se
 
 ``` django-admin.py startproject <NAMA-PROJECT> ```
 
-Struktur project yang dihasilkan 
+Struktur project yang dihasilkan, 
+1. `virtualenv` sebagai sub-dir _project_ <NAMA-PROJECT>
 
 ``` 
 - <NAMA-PROJECT>
@@ -53,7 +53,7 @@ Struktur project yang dihasilkan
     - virtualenv
         ...
 ```
-atau 
+2. `virtualenv` satu level dengan _project_ <NAMA-PROJECT>
 
 ```
 - virtualenv
@@ -71,8 +71,9 @@ atau
         ...    
 ```
 
-> Direktori untuk virtualenv bisa berada dalam direktori utama `<NAMA-PROJECT>` (sebagai sub-direktori) 
-> atau bisa di luar (satu level dengan direktori utama project `<NAMA-PROJECT>`). 
+> Direktori virtualenv bisa berada dalam direktori utama _project_ `<NAMA-PROJECT>` (sebagai sub-direktori) 
+> atau bisa di luar, satu level dengan direktori utama _project_ `<NAMA-PROJECT>`). 
+>
 > Jangan lupa untuk memasukkan `virtualenv` ke dalam `.gitignore`
 
 `django-apps-1` dan `django-apps-2` merupakan `apps` milik Django. Contoh yang sudah ada ialah `lab_1` dan `lab_2`. 
@@ -80,7 +81,9 @@ Dalam satu _project_ bisa terdapat banyak `apps`. Untuk membuat suatu app, gunak
 
 ``` python manage.py startapp <app-name> ```
 
-> sebelum menjalankan perintah ini, pastikan sudah berada satu direktori dengan berkas `manage.py` 
+> sebelum menjalankan perintah ini, pastikan sudah berada satu direktori dengan berkas `manage.py`. 
+>
+> Coba perintah `ls` (linux) atau `dir` (windows) 
 
 Struktur umum dari suatu `apps` ialah :
 ```
@@ -98,11 +101,12 @@ Struktur umum dari suatu `apps` ialah :
 ```
 
 Secara _default_ , tidak ada berkas `urls.py` karena Django memberikan kebebasan untuk membuat _routing_ sesuai kebutuhan pengembanng.
-Namun untuk _best practice_ dan kemudahan pengembangan, berkas `urls.py` dibuat manual untuk setiap `app` yang dibuat. 
+Namun untuk _best practice_ dan kemudahan pengembangan, berkas `urls.py` dibuat manual untuk setiap `app`. Berkas `urls.py` satu level
+(satu direktori) dengan berkas `views.py`
 
 > Apa beda `Project` dan `App` ? _Project_ adalah kumpulan konfigurasi dan beberapa app (aplikasi) untuk suatu website tertentu. 
 > Sedangkan _App_ adalah suatu aplikasi web yang memiliki fungsi/tugas tertentu, misalkan sebagai database atau sebagai aplikasi survei sederhana.
-> Satu _project_ dapat memiliki beberapa _app_, dan satu _app_ dapat digunakan di banyak _project_.
+> Satu _project_ dapat memiliki banyak _app_, dan satu _app_ dapat digunakan di banyak _project_.
 > 
 > <cite> https://docs.djangoproject.com/en/1.11/intro/tutorial01/ </cite>
 
