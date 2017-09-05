@@ -103,7 +103,7 @@ Struktur umum dari suatu `apps` ialah :
 > Suatu `app` dianggap aktif atau terpakai jika `app` tersebut didaftarkan di pengaturan `INSTALLED_APP`
 > pada berkas `settings.py` (penjelasan di bawah).
 
-Secara _default_ , tidak ada berkas `urls.py` karena Django memberikan kebebasan untuk membuat _routing_ sesuai kebutuhan pengembanng.
+Secara _default_ , tidak ada berkas `urls.py` karena Django memberikan kebebasan untuk membuat _routing_ sesuai kebutuhan pengembang.
 Namun untuk _best practice_ dan kemudahan pengembangan, berkas `urls.py` dibuat manual untuk setiap `app`. Berkas `urls.py` satu level
 (satu direktori) dengan berkas `views.py`
 
@@ -118,12 +118,12 @@ Namun untuk _best practice_ dan kemudahan pengembangan, berkas `urls.py` dibuat 
 Routing dapat diumpamakan sebagai suatu pemetaan. URL (Uniform Resource Locator) atau sederhananya adalah suatu alamat web.
 `http://localhost:8000` merupakan contoh sederhana dari suatu URL. `http://localhost` adalah alamat utamanya, sedangkan `8000` 
 adalah _port_ yang digunakan. Django memiliki python _module_ bernama `URLconf` (URL configuration) berisi sekumpulan 
-pola atau _pattern_ yang Django akan coba cocokkan untuk menemukan `view` (tampilan) yang benar. 
+pola atau _pattern_ yang Django akan coba cocokkan untuk menemukan `views` (tampilan) yang benar. 
 
 > Django menggunakan _regular expression_ atau _regex_ untuk melakukan pencocokan antara URL dengan `views` (tampilan).
 > Kalau penasaran bagaiman membuat _regex_ pada Python , coba cek [link](https://docs.python.org/3/howto/regex.html) berikut 
 
-Perhatikan struktur _project_ Django. Tedapat sub-dir yang memiliki nama sama persis dengan nama project yang dibuat, dengan struktur : 
+Perhatikan struktur _project_ Django, terdapat sub-dir dengan nama sama persis dengan nama project yang dibuat, dengan struktur : 
 
 ```
 <NAMA-PROJECT>
@@ -146,30 +146,23 @@ urlpattern = [
     ...
 ]
 ```
- - Perhatikan bahwa berkas `urls.py` pada `app` Django tidak dibuat secara otomatis oleh Django, melainkan dibuat secara manual.
-Pada contoh di atas, dalam direkotri `lab_1` diasumsikan ada berkas `urls.py`. Tanda dot (titik) sebagai penanda
-untuk mengakses isi direktori tersebut.  
-
-- `import lab_1.urls as lab_1` berarti berkas `lab_1.urls` diganti namanya dengan `lab_1` agar lebih sederhana dalam penulisan,
-
-
 > Note: Tanda titik tiga `...` pada kode di atas sebagai tanda bahwa isinya bisa apa saja, sesuai kebutuhan.  
 
+Perhatikan bahwa berkas `urls.py` pada `app` Django tidak dibuat secara otomatis oleh Django, melainkan dibuat secara manual.
+Pada contoh di atas, dalam direkotri `lab_1` diasumsikan ada berkas `urls.py`. Tanda dot (titik) sebagai penanda
+untuk mengakses isi direktori tersebut. 
+
+Penjelasan ringkas: 
+- `import lab_1.urls as lab_1` --> `lab_1.urls` diganti namanya dengan `lab_1` agar lebih sederhana dalam penulisan
+- baris kode `include(lab_1, ... )` memanggil berkas `lab_1.urls` 
+
+
+
 Pada bagian `url(r'^lab-1/', include(lab_1, namespace='lab-1'))`, menggunakan _regex_ `^` , yang artinya untuk setiap
-URL dengan awalan `lab-1/` yang menangani URL tersebut adalah berkas `lab_1.urls`. Untuk sementara, `namespace` tidak dibahas mendetail.
+URL dengan awalan `lab-1/` yang menangani URL tersebut adalah berkas `lab_1.urls`.
 Contoh: `http://localhost/lab-1/` akan ditangani oleh berkas `lab_1.urls` 
 
-
 > (sumber: https://gitlab.com/PPW-2017/Draft-Lab/blob/master/draft_lab/urls.py )
-
-Bagaimana isi berkas `lab_1.urls` ? 
-
-
-
-
-
-
-
 
 > sumber: 
 >
