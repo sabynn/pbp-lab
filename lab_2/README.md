@@ -100,6 +100,9 @@ Struktur umum dari suatu `apps` ialah :
             ...
 ```
 
+> Suatu `app` dianggap aktif atau terpakai jika `app` tersebut didaftarkan di pengaturan `INSTALLED_APP`
+> pada berkas `settings.py` (penjelasan di bawah).
+
 Secara _default_ , tidak ada berkas `urls.py` karena Django memberikan kebebasan untuk membuat _routing_ sesuai kebutuhan pengembanng.
 Namun untuk _best practice_ dan kemudahan pengembangan, berkas `urls.py` dibuat manual untuk setiap `app`. Berkas `urls.py` satu level
 (satu direktori) dengan berkas `views.py`
@@ -109,6 +112,69 @@ Namun untuk _best practice_ dan kemudahan pengembangan, berkas `urls.py` dibuat 
 > Satu _project_ dapat memiliki banyak _app_, dan satu _app_ dapat digunakan di banyak _project_.
 > 
 > <cite> https://docs.djangoproject.com/en/1.11/intro/tutorial01/ </cite>
+
+
+## Routing pada Django
+Routing dapat diumpamakan sebagai suatu pemetaan. URL (Uniform Resource Locator) atau sederhananya adalah suatu alamat web.
+`http://localhost:8000` merupakan contoh sederhana dari suatu URL. `http://localhost` adalah alamat utamanya, sedangkan `8000` 
+adalah _port_ yang digunakan. Django memiliki python _module_ bernama `URLconf` (URL configuration) berisi sekumpulan 
+pola atau _pattern_ yang Django akan coba cocokkan untuk menemukan `view` (tampilan) yang benar. 
+
+> Django menggunakan _regular expression_ atau _regex_ untuk melakukan pencocokan antara URL dengan `views` (tampilan).
+> Kalau penasaran bagaiman membuat _regex_ pada Python , coba cek [link](https://docs.python.org/3/howto/regex.html) berikut 
+
+Perhatikan struktur _project_ Django. Tedapat sub-dir yang memiliki nama sama persis dengan nama project yang dibuat, dengan struktur : 
+
+```
+<NAMA-PROJECT>
+    __init__.py
+    settings.py
+    urls.py
+    wsgi.py
+```
+
+Berkas `urls.py` pada direktori ini adalah contoh URLconf yang disediakan oleh Django, yang dapat digunakan untuk 
+melakukan `routing` ke `apps` Django lainnya. Contoh untuk membuat `routing` ke `app` lain , berdasarkan `lab_1` yang sudah dikerjakan (cek repo):
+
+``` 
+...
+from django.conf.urls import url, include
+import lab_1.urls as lab_1
+urlpattern = [
+    ...
+    url(r'^lab-1/', include(lab_1, namespace='lab-1')),
+    ...
+]
+```
+ - Perhatikan bahwa berkas `urls.py` pada `app` Django tidak dibuat secara otomatis oleh Django, melainkan dibuat secara manual.
+Pada contoh di atas, dalam direkotri `lab_1` diasumsikan ada berkas `urls.py`. Tanda dot (titik) sebagai penanda
+untuk mengakses isi direktori tersebut.  
+
+- `import lab_1.urls as lab_1` berarti berkas `lab_1.urls` diganti namanya dengan `lab_1` agar lebih sederhana dalam penulisan,
+
+
+> Note: Tanda titik tiga `...` pada kode di atas sebagai tanda bahwa isinya bisa apa saja, sesuai kebutuhan.  
+
+Pada bagian `url(r'^lab-1/', include(lab_1, namespace='lab-1'))`, menggunakan _regex_ `^` , yang artinya untuk setiap
+URL dengan awalan `lab-1/` yang menangani URL tersebut adalah berkas `lab_1.urls`. Untuk sementara, `namespace` tidak dibahas mendetail.
+Contoh: `http://localhost/lab-1/` akan ditangani oleh berkas `lab_1.urls` 
+
+
+> (sumber: https://gitlab.com/PPW-2017/Draft-Lab/blob/master/draft_lab/urls.py )
+
+Bagaimana isi berkas `lab_1.urls` ? 
+
+
+
+
+
+
+
+
+> sumber: 
+>
+> Penjelasan ringkas mengenai URL Django : <cite> https://tutorial.djangogirls.org/en/django_urls/ </cite>
+> Penjelasan lebih detail bagaimana URLconf bekerja :  <cite> https://docs.djangoproject.com/en/1.11/topics/http/urls/ </cite>
 
 ## Cara Menampilkan _Webpage_
 
