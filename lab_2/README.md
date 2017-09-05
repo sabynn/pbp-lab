@@ -193,6 +193,7 @@ Direktori yang menyimpan berkas HTML yang akan dipanggil oleh `views` adalah `te
 > sumber: 
 >
 > Penjelasan ringkas mengenai URL Django : <cite> https://tutorial.djangogirls.org/en/django_urls/ </cite>
+>
 > Penjelasan lebih detail bagaimana URLconf bekerja :  <cite> https://docs.djangoproject.com/en/1.11/topics/http/urls/ </cite>
 
 ## Cara Menampilkan _Webpage_
