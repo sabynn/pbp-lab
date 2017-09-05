@@ -7,8 +7,8 @@ Faculty of Computer Science Universitas Indonesia, Odd Semester 2017/2018
 
 ## Table of Contents
 
-Welcome to the code repository for Advanced Programming 2017 course.
-This repository hosts weekly tutorial codes and other, course-related
+Welcome to the code repository.
+This repository hosts weekly tutorial codes and other, such as course-related
 code snippets.
 
 1. Weekly Exercises
@@ -58,7 +58,7 @@ please read the following sections.
 
 ## Initial Setup
 
-If you previously not working on [Lab 1](lab_1/README.md) Tutorial
+If you previously haven't worked on [Lab 1](lab_1/README.md) Tutorial
 
 1. then Create a fork of this repository to your GitLab account, which
 will create a copy of this repository under your own account. 
@@ -79,7 +79,7 @@ repository so s/he can grade it later.
 **Internal** or **Public**. Check it in **Edit Project** menu at
 your repository page.
 
-If you do [Lab 1](lab_1/README.md) Tutorial
+If you did [Lab 1](lab_1/README.md) Tutorial
 
 1. Add new remote called **upstream** that points to the original
 GitLab repository. Use Git command: `git remote add upstream git remote add upstream https://gitlab.com/PPW-2017/Draft-Lab`
@@ -94,21 +94,21 @@ your repository page.
 1. Suppose that you want to work on Lab 2 problem set. Go to the
 directory that containing Lab 2 README.md.
 2. To ensure your work regarding Lab 2 problem is isolated from
-your other attempts at other problems, create a new apps
+your other attempts on other problems, create a new apps
 specifically for working on Lab 2 problem. Use Python command:
 `python manage.py startapp lab_2`
-3. Read the README file carefully because It contains set of tasks and Instructions that you can work on.
+3. Read the README file carefully because It contains set of tasks and instructions that you can work on.
 4. Do the tutorial.
 5. Use `git add` or `git rm` to stage/unstage files that you want to
 save into Git later.
 6. Once you want to save your progress, commit your work to Git. Use
-Git command: `git commit` A text editor will apear where you should
+Git command: `git commit` A text editor will appear where you should
 write a commit message. Please try to follow the guidelines written
 in [this guide](http://chris.beams.io/posts/git-commit/) on how to
 write a good commit message.
-7. Repeat steps 4 - 6 until you finished the tutorial.
+7. Repeat steps 4 - 6 until you finish the tutorial.
 8. Once you are ready to submit your work or you want to save it to
-your repository on GitLab, do a Git push. The Git command: 
+your repository on GitLab, do a Git **push**. The Git command: 
 `git push origin master`
 
 ## Pulling Updates From Upstream
@@ -129,7 +129,7 @@ forget to push it back to your own GitLab repository. Use Git command:
 
 1. Go to Pipeline Settings (`Settings -> Pipelines`)
 2. Go to section Coverage Settings (`Pipelines -> Test coverage parsing`)
-3. Write this Regex in textbox `Test Coverage Parsing` 
+3. Write this Regex (Regular Expression) in textbox `Test Coverage Parsing` 
 
     > TOTAL\s+\d+\s+\d+\s+(\d+)%
 
@@ -158,5 +158,7 @@ International classes:
     the demonstration is still done before **your lab session**, students have the chance
     to achieve maximum score for the tutorial.
 2. If the demonstration is done after **your lab session**, you have to demonstrate
- your work to your **lecturer** and your scrone won't reach maximum point eventhough you 
+ your work to your **lecturer** and your score won't reach maximum point eventhough you 
  **do all checklists**
+
+### Happy Coding :)
