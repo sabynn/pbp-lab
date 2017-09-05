@@ -23,8 +23,8 @@ Virtual environment (lingkungan virtual) berfungsi untuk memisahkan pengaturan d
 pada setiap _Django project_ sehingga perubahan yang dilakukan pada satu _project_ tidak mempengaruhi _project_ lainnya. 
 Dengan kata lain, setiap _Django project_ sebaiknya memiliki _virtualenv_ nya sendiri. 
 
-> Pastikan saat pembuatan virtualenv, yang digunakan adalah `Python3`
-> Sebelum memulai pengembangan web, biasakan untuk selalu mengaktifkan virtualenv terlebih dahulu
+> Pastikan saat pembuatan virtualenv, yang digunakan adalah python versi 3 (cek dengan `python --version` )
+> Sebelum memulai pengembangan web, biasakan untuk selalu mengaktifkan virtualenv terlebih dahulu.
 
 > Quote here.
 >
@@ -32,21 +32,24 @@ Dengan kata lain, setiap _Django project_ sebaiknya memiliki _virtualenv_ nya se
 
 ## Struktur _Django Project_
 
-`django-admin.py` adalah _script_ yang digunakan untuk pembuatan _Django project_. 
-Misalkan nama _project_ yang akan dibuat adalah `PPW-2017` , untuk membuatnya jalankan 
+`django-admin.py` adalah _script_ yang digunakan untuk pembuatan _Django project_. Contoh untuk membuat suatu _project_
 
-``` django-admin.py startproject PPW-2017 ```
+``` django-admin.py startproject <NAMA-PROJECT> ```
 
 Struktur project yang dihasilkan 
 
 ``` 
-- PPW-2017
+- <NAMA-PROJECT>
     - manage.py
-    - PPW-2017
+    - <NAMA-PROJECT>
         __init__.py
         settings.py
         urls.py
         wsgi.py
+    - <django-apps-1>
+        ...
+    - <django-apps-2>
+        ...
     - virtualenv
         ...
 ```
@@ -55,18 +58,53 @@ atau
 ```
 - virtualenv
     ...
-- PPW-2017
+- <NAMA-PROJECT>
     - manage.py
-    - PPW-2017
+    - <NAMA-PROJECT>
         __init__.py
         settings.py
         urls.py
         wsgi.py
+    - <django-apps-1>
+        ...
+    - <django-apps-2>
+        ...    
 ```
 
-> Direktori untuk virtualenv bisa berada dalam direktori utama `PPW-2017` (sebagai sub-direktori) 
-> atau bisa di luar (satu level dengan direktori utama project `PPW-2017`). 
+> Direktori untuk virtualenv bisa berada dalam direktori utama `<NAMA-PROJECT>` (sebagai sub-direktori) 
+> atau bisa di luar (satu level dengan direktori utama project `<NAMA-PROJECT>`). 
 > Jangan lupa untuk memasukkan `virtualenv` ke dalam `.gitignore`
+
+`django-apps-1` dan `django-apps-2` merupakan `apps` milik Django. Contoh yang sudah ada ialah `lab_1` dan `lab_2`. 
+Dalam satu _project_ bisa terdapat banyak `apps`. Untuk membuat suatu app, gunakan perintah
+
+``` python manage.py startapp <app-name> ```
+
+> sebelum menjalankan perintah ini, pastikan sudah berada satu direktori dengan berkas `manage.py` 
+
+Struktur umum dari suatu `apps` ialah :
+```
+    - <app-name>
+        __init__.py
+        admin.py
+        apps.py
+        models.py
+        tests.py
+        views.py
+        - migrations
+            ...
+        - templates
+            ...
+```
+
+Secara _default_ , tidak ada berkas `urls.py` karena Django memberikan kebebasan untuk membuat _routing_ sesuai kebutuhan pengembanng.
+Namun untuk _best practice_ dan kemudahan pengembangan, berkas `urls.py` dibuat manual untuk setiap `app` yang dibuat. 
+
+> Apa beda `Project` dan `App` ? _Project_ adalah kumpulan konfigurasi dan beberapa app (aplikasi) untuk suatu website tertentu. 
+> Sedangkan _App_ adalah suatu aplikasi web yang memiliki fungsi/tugas tertentu, misalkan sebagai database atau sebagai aplikasi survei sederhana.
+> Satu _project_ dapat memiliki beberapa _app_, dan satu _app_ dapat digunakan di banyak _project_.
+> 
+> <cite> https://docs.djangoproject.com/en/1.11/intro/tutorial01/ </cite>
 
 ## Cara Menampilkan _Webpage_
 
