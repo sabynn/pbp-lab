@@ -15,15 +15,62 @@ Setelah menyelesaikan tutorial ini, mahasiswa diharapkan untuk mengerti :
 
 ## Pengenalan
 
-_Django_ merupakan salah satu _framework_
+_Django_ merupakan salah satu _framework_ yang menggunakan bahasa pemrograman _python_.
+_Framework_ sangat berguna dalam pengembangan web karena sudah menyediakan komponen-komponen 
+yang dibutuhkan untuk membuat dan menjalankan suatu web, tanpa harus mulai dari nol. 
+Sebelum memulai pengembangan web menggunakan Django, penting untuk memahami apa itu `virtual environemnt` (virtualenv).
+Virtual environment (lingkungan virtual) berfungsi untuk memisahkan pengaturan dan _package_ yang di_install_ 
+pada setiap _Django project_ sehingga perubahan yang dilakukan pada satu _project_ tidak mempengaruhi _project_ lainnya. 
+Dengan kata lain, setiap _Django project_ sebaiknya memiliki _virtualenv_ nya sendiri. 
+
+> Pastikan saat pembuatan virtualenv, yang digunakan adalah `Python3`
+> Sebelum memulai pengembangan web, biasakan untuk selalu mengaktifkan virtualenv terlebih dahulu
 
 > Quote here.
 >
 > -- <cite>https://tutorial.djangogirls.org/en/django/</cite>
 
+## Struktur _Django Project_
+
+`django-admin.py` adalah _script_ yang digunakan untuk pembuatan _Django project_. 
+Misalkan nama _project_ yang akan dibuat adalah `PPW-2017` , untuk membuatnya jalankan 
+
+``` django-admin.py startproject PPW-2017 ```
+
+Struktur project yang dihasilkan 
+
+``` 
+- PPW-2017
+    - manage.py
+    - PPW-2017
+        __init__.py
+        settings.py
+        urls.py
+        wsgi.py
+    - virtualenv
+        ...
+```
+atau 
+
+```
+- virtualenv
+    ...
+- PPW-2017
+    - manage.py
+    - PPW-2017
+        __init__.py
+        settings.py
+        urls.py
+        wsgi.py
+```
+
+> Direktori untuk virtualenv bisa berada dalam direktori utama `PPW-2017` (sebagai sub-direktori) 
+> atau bisa di luar (satu level dengan direktori utama project `PPW-2017`). 
+> Jangan lupa untuk memasukkan `virtualenv` ke dalam `.gitignore`
+
 ## Cara Menampilkan _Webpage_
 
-Pada lab ini anda telah disediakan sebuah _template_ `apps` Django. Tugas Anda adalah membuat sebuah _Landing Page_ 
+Pada lab ini anda telah disediakan sebuah _template_ `apps`  Django. Tugas Anda adalah membuat sebuah _Landing Page_ 
 dengan _template_ yang sudah diberikan, lalu menambahkan sebuah `apps` baru yang akan menjadi _Page_ tambahan
 untuk _webpage_ kalian
 
