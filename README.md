@@ -34,8 +34,8 @@ code snippets.
 
 After you work at [Lab 1](lab_1/README.md), make sure to link this repository to your Lab 1 Repository :
 
-1. Add this repository link to your remote list as `upstream` (`git remote add upstrean https://gitlab.com/PPW-2017/ppw-lab`)
-2. Pull the latest update to check whether new tutorials has been updated (`git pull upstream master`)
+1. Add this repository link to your remote list as `upstream` (`git remote add upstream https://gitlab.com/PPW-2017/ppw-lab`)
+2. Pull the latest update to check whether new tutorials have been updated (`git pull upstream master`)
 3. Fix any merge conflict(s) that might arise (hopefully none)
     - Always choose latest commit from `upstream` when fixing merge
     conflict(s)
