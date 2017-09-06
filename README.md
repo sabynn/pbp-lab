@@ -72,7 +72,7 @@ where `<PATH>` is a path to a directory in your local machine.
 5. Go to the directory where the cloned repository is located in your
 local machine.
 6. Add new remote called **upstream** that points to the original
-GitLab repository. Use Git command: `git remote add upstream git remote add upstream https://gitlab.com/PPW-2017/ppw-lab`
+GitLab repository. Use Git command: `git remote add upstream https://gitlab.com/PPW-2017/ppw-lab`
 7. Tell your TA about your GitLab username and URL to your tutorial
 repository so s/he can grade it later.
 8. Ensure that your repository page has visibility level set to
