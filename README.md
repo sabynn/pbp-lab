@@ -34,8 +34,8 @@ code snippets.
 
 After you work at [Lab 1](lab_1/README.md), make sure to link this repository to your Lab 1 Repository :
 
-1. Add this repository link to your remote list as `upstream` (`git remote add upstrean https://gitlab.com/PPW-2017/ppw-lab`)
-2. Pull the latest update to check whether new tutorials has been updated (`git pull upstream master`)
+1. Add this repository link to your remote list as `upstream` (`git remote add upstream https://gitlab.com/PPW-2017/ppw-lab`)
+2. Pull the latest update to check whether new tutorials have been updated (`git pull upstream master`)
 3. Fix any merge conflict(s) that might arise (hopefully none)
     - Always choose latest commit from `upstream` when fixing merge
     conflict(s)
@@ -72,7 +72,7 @@ where `<PATH>` is a path to a directory in your local machine.
 5. Go to the directory where the cloned repository is located in your
 local machine.
 6. Add new remote called **upstream** that points to the original
-GitLab repository. Use Git command: `git remote add upstream git remote add upstream https://gitlab.com/PPW-2017/ppw-lab`
+GitLab repository. Use Git command: `git remote add upstream https://gitlab.com/PPW-2017/ppw-lab`
 7. Tell your TA about your GitLab username and URL to your tutorial
 repository so s/he can grade it later.
 8. Ensure that your repository page has visibility level set to
