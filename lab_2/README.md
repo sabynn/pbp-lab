@@ -236,7 +236,7 @@ di sebuah `landing page`
 
 1. Menampilkan Halaman _Landing Page_
     1. [ ] Isi variabel `landing_page_content` sehingga menjadi _Landing Page_ yang layak (Min 30 karakter)
-    2. [ ] Buatlah konfigurasi URL dalam _file_ `lab_2/views.py` sehingga _Landing Page_ bisa diakses dengan URL `<HEROKU_APP_HOST>/lab-2/`
+    2. [ ] Buatlah konfigurasi URL dalam _file_ `lab_2/urls.py` sehingga _Landing Page_ bisa diakses dengan URL `<HEROKU_APP_HOST>/lab-2/`
         > contoh : djangoppw.herokuapp.com/lab-2/
 2. Membuat _Django Apps_ baru bernama *lab_2_addon* lalu lakukan konfigurasi pada `views.py`
     1. [ ] Buatlah sebuah `app` baru (Hint: Jalankan _command_ `python manage.py help`)
@@ -267,7 +267,7 @@ di sebuah `landing page`
     2. [ ] Ubah _section_ INSTALLED_APPS sehingga `apps lab_2_addon` dapat dikenali sebagai _Django Apps_ yang aktif (Tanpa melakukan langkah ini
     maka kalian tidak bisa halaman `description_lab2addon.html` tidak bisa ditampilkan melalui URL yang sudah dibuat di `urls.py`)
     3. [ ] Tampilkan halaman _Landing Page_ jika ada _request_ yang datang pada Root URL _website_ kalian
-        >Ketika mengakses `<HEROKU_APP_HOST>/` maka _Landing Page_ akan tampil
+        >Ketika mengakses `<HEROKU_APP_HOST>/` maka _Landing Page_ akan tampil (Hint: Gunakan RedirectView)
     4. [ ] Isilah _file_ `lab_2_addon/tests.py` dengan cara memindahkan `class Lab2AddonUnitTest` beserta semua
     _Test Case_ yang ada lalu aktifkan _Test Case_ tersebut dengan menghilangkan `skip` di atas setiap _Test Case_.
     Import semua `library`, `function` atau `variabel` yang dibutuhkan agar _Test Case_ bisa dijalankan
