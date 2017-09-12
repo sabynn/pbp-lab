@@ -84,7 +84,6 @@ Maka kalian bisa melihat, terdapat _Navigation Bar_ pada _Landing Page_ Kalian
 
 6. Masukkan `lab_3` ke dalam INSTALLED_APPS di dalam `praktikum/settings.py`
 7. Masukkan _Test Case_ Berikut ke dalam `lab_3/tests.py`
-
 ```python
     from django.test import TestCase, Client
     from django.urls import resolve
@@ -105,14 +104,12 @@ Maka kalian bisa melihat, terdapat _Navigation Bar_ pada _Landing Page_ Kalian
 ```
 Berikut adalah _Test Case_ yang akan memastikan bahwa URL `<YOURHOSTNAME>/lab-3/` **bisa diakses, menggunakan fungsi index di dalam `views.py`, dan
 menggunakan template yang bernama `to_do_list.html`**
-
 8. Jika kalian menjalankan _test_ secara lokal, maka kalian bisa melihat terjadi _error_ . Gunakan perintah 
 
     > python manage.py test
 
 9. Untuk men-_solve_ semua _Test Case_, maka pertama - tama kalian harus membuat **konfigurasi URL**. Berikan 
 konfigurasi URL untuk `lab_3` (Buat berkas `urls.py` di dalam `lab_3`, lalu masukkan kode berikut) :
-
 ```python
     from django.conf.urls import url
     from .views import index
@@ -121,18 +118,15 @@ konfigurasi URL untuk `lab_3` (Buat berkas `urls.py` di dalam `lab_3`, lalu masu
         url(r'^$', index, name='index'),
     ]
 ```
-10. Masukkan kode berikut kedalam `lab_3/views.py` untuk dapat menampilkan berkas `to_do_list.html` 
-
+10. Masukkan kode berikut kedalam `lab_3/views.py` untuk dapat menampilkan berkas `to_do_list.html`:
 ```python
     from django.shortcuts import render
     # Create your views here.
     diary_dict = {}
     def index(request):
         return render(request, 'to_do_list.html', {'diary_dict' : diary_dict})
-
 ```
-11. Sisipkan kode berikut kedalam konfigurasi URL untuk `lab_3` ke dalam `praktikum/urls.py` 
-
+11. Sisipkan kode berikut kedalam konfigurasi URL untuk `lab_3` ke dalam `praktikum/urls.py`:
 ```python
     ...........
     import lab_3.urls as lab_3
@@ -143,19 +137,13 @@ konfigurasi URL untuk `lab_3` (Buat berkas `urls.py` di dalam `lab_3`, lalu masu
         url(r'^lab-3/', include(lab_3,namespace='lab-3')),
     ]
 ```
-
-`.....` menandakan kode kalian yang sudah ada, sehingga kode yang tertulis disini cukup kalian sisipkan bukan untuk
-di _copy-paste_
-
-12. Silahkan jalankan _test_ kalian lagi
+`.....` menandakan kode kalian yang sudah ada, sehingga kode yang tertulis disini cukup kalian sisipkan bukan untuk di _copy-paste_
+12. Silahkan jalankan _test_ kalian lagi maka kalian bisa melihat semua _Test Case_ akan ter-_solved_
 
     > `python manage.py test`
-
-Kalian bisa melihat semua _Test Case_ akan ter-_solved_
-
+    
 13. Untuk membuat fitur yang akan menambahkan dan menampilkan _list_ aktifitas maka pertama - tama kalian harus membuat 
 **models** terlebih dahulu. Sisipkan _Test Case_ berikut kedalam `lab_3/tests.py` :
-
 ```python
     .........
     from .models import Diary
@@ -171,7 +159,7 @@ Kalian bisa melihat semua _Test Case_ akan ter-_solved_
             counting_all_available_activity = Diary.objects.all().count()
             self.assertEqual(counting_all_available_activity,1)    
 ```
-13. Jalankan _Test Case_ kalian, maka akan kembali muncul _Error_ pada _Test Case_
+14. Jalankan _Test Case_ kalian, maka akan kembali muncul _Error_ pada _Test Case_
 
     > Trivia
     >
@@ -179,8 +167,7 @@ Kalian bisa melihat semua _Test Case_ akan ter-_solved_
     terlebih dahulu, dan ketika dijalankan _Test Case_ tersebut harus _Error_ (RED). Selanjutnya kalian harus membuat
     suatu fungsi yang menyelesaikan _Test Case_ tersebut (GREEN)
     
-14. Buatlah sebuah **models** bernama `Diary` di dalam berkas `lab_3/models.py`:
-
+15. Buatlah sebuah **models** bernama `Diary` di dalam berkas `lab_3/models.py`:
 ```python
     from django.db import models
     
@@ -189,8 +176,7 @@ Kalian bisa melihat semua _Test Case_ akan ter-_solved_
         date = models.DateTimeField()
         activity = models.TextField(max_length=60)    
 ```
-
-15. Jalankan _Test Case_ kalian (`python manage.py test`), maka akan kembali muncul _Error_ pada _Test Case_ 
+16. Jalankan _Test Case_ kalian (`python manage.py test`), maka akan kembali muncul _Error_ pada _Test Case_ 
 
     > Loh Kenapa?
     >
@@ -198,9 +184,9 @@ Kalian bisa melihat semua _Test Case_ akan ter-_solved_
     >
     > Jalankan perintah `python manage.py makemigrations` dan `python manage.py migrate` untuk menerapkan 
     > perubahan yang sudah kamu lalukan pada semua berkas `models.py`     
-16. Buka kembali berkas `lab_3/tests.py` lalu tambahkan kode berikut pada baris paling akhir :
-    ```python
-    
+
+17. Buka kembali berkas `lab_3/tests.py` lalu tambahkan kode berikut pada baris paling akhir :
+```python
     ........
     class Lab3Test(TestCase):
         ........
@@ -208,22 +194,21 @@ Kalian bisa melihat semua _Test Case_ akan ter-_solved_
         response = self.client.post('/lab-3/add_activity/', data={'date': '2017-10-12T14:14', 'activity' : 'Maen Dota Kayaknya Enak'})
         counting_all_available_activity = Diary.objects.all().count()
         self.assertEqual(counting_all_available_activity, 1)
-
+    
         self.assertEqual(response.status_code, 302)
         self.assertEqual(response['location'], '/lab-3/')
-
+    
         new_response = self.client.get('/lab-3/')
         html_response = new_response.content.decode('utf8')
         self.assertIn('Maen Dota Kayaknya Enak', html_response)
-
-    ```
-17. Setelah itu jalankan kembali _Test Case_ ( `python manage.py test` ) , akan muncul _error_.
+```
+18. Setelah itu jalankan kembali _Test Case_ ( `python manage.py test` ) , akan muncul _error_.
     > Contoh potongan kode _error_ yang muncul seperti 
      > from .views import index, add_activity
      > 
      > ImportError: cannot import name 'add_activity'
      >     
-18. Buka berkas `lab_3/views.py` dan tambahkan baris kode berikut : 
+19. Buka berkas `lab_3/views.py` dan tambahkan baris kode berikut : 
     ```python
     from .models import Diary
     from datetime import datetime
@@ -235,7 +220,7 @@ Kalian bisa melihat semua _Test Case_ akan ter-_solved_
             Diary.objects.create(date=date.replace(tzinfo=pytz.UTC),activity=request.POST['activity'])
             return redirect('/lab-3/')
     ```
-19. Kemudian pada berkas `lab_3/urls.py` tambahkan kode berikut : 
+20. Kemudian pada berkas `lab_3/urls.py` tambahkan kode berikut : 
      ```python
     ...
     from .views import add_activity
@@ -244,13 +229,13 @@ Kalian bisa melihat semua _Test Case_ akan ter-_solved_
         url(r'add_activity/$', add_activity, name='add_activity'),
     ]
      ```
-20. Jalankan kembali _test_ untuk memastikan bahwa akan muncul _Error_
+21. Jalankan kembali _test_ untuk memastikan bahwa akan muncul _Error_
 
     >Hal ini dikarenakan data kalian sudah bisa dibuat di _Database_, namun data tersebut
     belum ditampilkan ke halaman depan. Untuk itu kita harus menampilkan kembali semua data yang sudah
     kita simpan di _Database_ 
 
-21. Untuk menampilkan data yang sudah tersimpman di _Database_ maka ubah kode yang ada 
+22. Untuk menampilkan data yang sudah tersimpman di _Database_ maka ubah kode yang ada 
 di `lab_3/views.py` sehingga menjadi seperti berikut:
 
     ```python
@@ -276,8 +261,8 @@ di `lab_3/views.py` sehingga menjadi seperti berikut:
         for data in queryset:
             ret_val.append(data)
         return ret_val
-     ```
-22. Coba jalankan _test_ kalian dan (seharusnya) _test_ kalian akan **passed**
+```
+23. Coba jalankan _test_ kalian dan (seharusnya) _test_ kalian akan **passed**
     >....................
     >
     >Ran 19 Test Ok
