@@ -198,30 +198,24 @@ Kalian bisa melihat semua _Test Case_ akan ter-_solved_
     >
     > Jalankan perintah `python manage.py makemigrations` dan `python manage.py migrate` untuk menerapkan 
     > perubahan yang sudah kamu lalukan pada semua berkas `models.py`     
-16. Buka kembali berkas `lab_3/tests/py` lalu tambahkan kode berikut pada baris paling akhir :
+16. Buka kembali berkas `lab_3/tests.py` lalu tambahkan kode berikut pada baris paling akhir :
     ```python
-        from django.shortcuts import render, redirect
-        from .models import Diary
-        from datetime import datetime
-        import pytz
-        import json
-        # Create your views here.
-        diary_dict = {}
-        def index(request):
-            diary_dict = Diary.objects.all().values()
-            return render(request, 'to_do_list.html', {'diary_dict' : convert_queryset_into_json(diary_dict)})
-        
-        def add_activity(request):
-            if request.method == 'POST':
-                date = datetime.strptime(request.POST['date'],'%Y-%m-%dT%H:%M')
-                Diary.objects.create(date=date.replace(tzinfo=pytz.UTC),activity=request.POST['activity'])
-                return redirect('/lab-3/')
-        
-        def convert_queryset_into_json(queryset):
-            ret_val = []
-            for data in queryset:
-                ret_val.append(data)
-            return ret_val
+    
+    ........
+    class Lab3Test(TestCase):
+        ........
+        def test_can_save_a_POST_request(self):
+        response = self.client.post('/lab-3/add_activity/', data={'date': '2017-10-12T14:14', 'activity' : 'Maen Dota Kayaknya Enak'})
+        counting_all_available_activity = Diary.objects.all().count()
+        self.assertEqual(counting_all_available_activity, 1)
+
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response['location'], '/lab-3/')
+
+        new_response = self.client.get('/lab-3/')
+        html_response = new_response.content.decode('utf8')
+        self.assertIn('Maen Dota Kayaknya Enak', html_response)
+
     ```
 17. Setelah itu jalankan kembali _Test Case_ ( `python manage.py test` ) , akan muncul _error_.
     > Contoh potongan kode _error_ yang muncul seperti 
@@ -241,7 +235,7 @@ Kalian bisa melihat semua _Test Case_ akan ter-_solved_
             Diary.objects.create(date=date.replace(tzinfo=pytz.UTC),activity=request.POST['activity'])
             return redirect('/lab-3/')
     ```
-19. Kemudian pada berkas `lab_3/urls` tambahkan kode berikut : 
+19. Kemudian pada berkas `lab_3/urls.py` tambahkan kode berikut : 
      ```python
     ...
     from .views import add_activity
