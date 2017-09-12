@@ -14,9 +14,7 @@ Setelah menyelesaikan tutorial ini, mahasiswa diharapkan untuk mengerti :
 - Disiplin TDD dalam pengembangan _Web Application_
 
 
-## Melihat _Log_ Error di Heroku Dashboard
-
-## Menambahkan _Addon_ PostgreSQL kedalam Aplikasi Heroku
+## Menambahkan _Addon_ PostgreSQL kedalam Aplikasi Heroku (Info Tambahan)
 
 Untuk dapat menggunakan Heroku _command prompt_  (heroku-cli) _install_ terlebih dahulu
 dengan mengikuti petunjuk pada [link](https://devcenter.heroku.com/articles/heroku-cli) berikut. 
@@ -38,20 +36,6 @@ akan dikeluarkan oleh perintah tersebut di
 Bilamana tampilan tersebut tidak muncul, maka kalian harus membuat secara manual _Database_ PostgreSQL:
 
 > heroku addons:create heroku-postgresql:hobby-dev --app <YOURAPPNAME>
-
-## Menambahkan _Worker_ kedalam Procfile untuk _Auto Migrate Database_
-
-Agar _Database_ selalu _up-to-date_ dengan _models_ maka setiap kali kita akan men-_deploy website_, kita harus 
-melakukan sinkronisasi antara _Database_ dengan _models_ dengan cara :
-
-> python manage.py makemigrations
->
-> python manage.py migrate
-
-Perintah tersebut bisa dijalankan secara _manual_ (Pembahasan lebih lanjut ada di _section_ selanjutnya). Untuk melakukan
-sinkronisasi di Heroku, maka kalian cukup membuat _worker_ yang akan menjalankan perintah tersebut (Sudah di buat di _file deployment.sh_).:
-
-> heroku ps:scale web=1 migrate=1 --app <YOURAPPNAME>
 
 ## Django _Models_ dan _Migrations_ 
 
@@ -321,3 +305,9 @@ di `lab_3/views.py` sehingga menjadi seperti berikut:
     1. [ ] Jika kalian belum melakukan konfigurasi untuk menampilkan _Code Coverage_ di Gitlab maka lihat langkah `Show Code Coverage in Gitlab`
     di [README.md](https://gitlab.com/PPW-2017/ppw-lab/blob/master/README.md)
     2. [ ] Pastikan _Code Coverage_ kalian 100%
+
+## Challange Checklist 
+
+1. [ ] Perbaikan Warna dari Tampilan _Website_
+2. [ ] Berikan _Input Validation_, ketika Input untuk tanggal tidak sesuai format, maka data tidak tersimpan
+(Saat ini yang dilakukan oleh program adalah memberikan _stacktrace error_. Hal ini biasanya terjadi di _browser_ Mozilla)
