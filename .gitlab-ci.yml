@@ -21,6 +21,8 @@ Deployment:
     - gem install dpl
     - wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
   script:
+    - export HEROKU_API_KEY=$HEROKU_APIKEY
+    - heroku ps:scale web=1 migrate=1 --app $HEROKU_APPNAME
     - dpl --provider=heroku --app=$HEROKU_APPNAME --api-key=$HEROKU_APIKEY
     - export HEROKU_API_KEY=$HEROKU_APIKEY
     - heroku run --app $HEROKU_APPNAME migrate
