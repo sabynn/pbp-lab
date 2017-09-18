@@ -14,9 +14,7 @@ Setelah menyelesaikan tutorial ini, mahasiswa diharapkan untuk mengerti :
 - Disiplin TDD dalam pengembangan _Web Application_
 
 
-## Melihat _Log_ Error di Heroku Dashboard
-
-## Menambahkan _Addon_ PostgreSQL kedalam Aplikasi Heroku
+## Menambahkan _Addon_ PostgreSQL kedalam Aplikasi Heroku (Info Tambahan)
 
 Untuk dapat menggunakan Heroku _command prompt_  (heroku-cli) _install_ terlebih dahulu
 dengan mengikuti petunjuk pada [link](https://devcenter.heroku.com/articles/heroku-cli) berikut. 
@@ -24,34 +22,18 @@ dengan mengikuti petunjuk pada [link](https://devcenter.heroku.com/articles/hero
 Setelah proses _install_ selesai, buka _terminal_ atau _command prompt_ (disarankan menggunakan _cmd_ pada Windows)
 dan ketikkan `heroku` untukk memastikan bahwa _heroku-cli_ sudah terpasang dengan benar. 
 
-Setiap kalian membuat aplikasi di Heroku, maka secara otomatis Heroku akan membuatkan sebuah PostgreSQL _Database_
-yang bisa kalian gunakan untuk aplikasi kalian. 
+Setiap kalian membuat aplikasi di Heroku, maka secara otomatis Heroku akan membuatkan sebuah PostgreSQL _Database_ yang bisa kalian gunakan untuk aplikasi kalian.
 
 Untuk cek keberadaan _database_ , jalankan perintah berikut di `Command Prompt` :
 
 > heroku addons
 
-Kalian bisa melihat contoh tampilan yang
-akan dikeluarkan oleh perintah tersebut di 
+Kalian bisa melihat contoh tampilan yang akan dikeluarkan oleh perintah tersebut di
 [link](https://devcenter.heroku.com/articles/heroku-postgresql#provisioning-heroku-postgres) berikut 
 
 Bilamana tampilan tersebut tidak muncul, maka kalian harus membuat secara manual _Database_ PostgreSQL:
 
 > heroku addons:create heroku-postgresql:hobby-dev --app <YOURAPPNAME>
-
-## Menambahkan _Worker_ kedalam Procfile untuk _Auto Migrate Database_
-
-Agar _Database_ selalu _up-to-date_ dengan _models_ maka setiap kali kita akan men-_deploy website_, kita harus 
-melakukan sinkronisasi antara _Database_ dengan _models_ dengan cara :
-
-> python manage.py makemigrations
->
-> python manage.py migrate
-
-Perintah tersebut bisa dijalankan secara _manual_ (Pembahasan lebih lanjut ada di _section_ selanjutnya). Untuk melakukan
-sinkronisasi di Heroku, maka kalian cukup membuat _worker_ yang akan menjalankan perintah tersebut (Sudah di buat di _file deployment.sh_).:
-
-> heroku ps:scale web=1 migrate=1 --app <YOURAPPNAME>
 
 ## Django _Models_ dan _Migrations_ 
 
@@ -87,12 +69,19 @@ Maka kalian bisa melihat, terdapat _Navigation Bar_ pada _Landing Page_ Kalian
 
 ## Membuat Halaman _Diary_ (Menggunakan Disiplin TDD)
 
-1. _Update Workspace_ kalian dengan melakukan `git pull upstream master`
+1. _Update Workspace_ kalian dengan melakukan `git pull upstream master`. Pastikan variable *upstream* sudah berisi _value_ yang sesuai yaitu: 'https://gitlab.com/PPW-2017/ppw-lab.git'. Untuk memeriksanya bisa jalankan perintah:
+    ```git
+    git remote -v
+    ```
+
+   > Bila belum ada silahkan ikuti instruksi [Initial Setup](../Readme.md) di berkas 'Readme.md' pada _root directory_
+
+
 2. Jalankan _Virtual Environment_ kalian
 3. _Install tools_ terbaru dari `requirement.txt`
-
-    > pip install -r requirement.txt
-
+    ```python
+    pip install -r requirement.txt
+    ```
 4. Buatlah sebuah apps baru bernama `lab_3`
 5. Pindahkan berkas HTML `to_do_list.html` ke _folder_ `templates` yang berada dalam `lab_3`
 
@@ -100,27 +89,26 @@ Maka kalian bisa melihat, terdapat _Navigation Bar_ pada _Landing Page_ Kalian
 
 6. Masukkan `lab_3` ke dalam INSTALLED_APPS di dalam `praktikum/settings.py`
 7. Masukkan _Test Case_ Berikut ke dalam `lab_3/tests.py`
+    ```python
+        from django.test import TestCase, Client
+        from django.urls import resolve
+        from .views import index
 
-```python
-    from django.test import TestCase, Client
-    from django.urls import resolve
-    from .views import index
-    
-    class Lab3Test(TestCase):
-        def test_lab_3_url_is_exist(self):
-            response = Client().get('/lab-3/')
-            self.assertEqual(response.status_code,200)
-    
-        def test_lab_3_using_to_do_list_template(self):
-            response = Client().get('/lab-3/')
-            self.assertTemplateUsed(response, 'to_do_list.html')
-    
-        def test_lab_3_using_index_func(self):
-            found = resolve('/lab-3/')
-            self.assertEqual(found.func, index)
-```
-Berikut adalah _Test Case_ yang akan memastikan bahwa URL `<YOURHOSTNAME>/lab-3/` **bisa diakses, menggunakan fungsi index di dalam `views.py`, dan
-menggunakan template yang bernama `to_do_list.html`**
+        class Lab3Test(TestCase):
+            def test_lab_3_url_is_exist(self):
+                response = Client().get('/lab-3/')
+                self.assertEqual(response.status_code,200)
+
+            def test_lab_3_using_to_do_list_template(self):
+                response = Client().get('/lab-3/')
+                self.assertTemplateUsed(response, 'to_do_list.html')
+
+            def test_lab_3_using_index_func(self):
+                found = resolve('/lab-3/')
+                self.assertEqual(found.func, index)
+    ```
+    Berikut adalah _Test Case_ yang akan memastikan bahwa URL `<YOURHOSTNAME>/lab-3/` **bisa diakses, menggunakan fungsi index di dalam `views.py`, dan
+    menggunakan template yang bernama `to_do_list.html`**
 
 8. Jika kalian menjalankan _test_ secara lokal, maka kalian bisa melihat terjadi _error_ . Gunakan perintah 
 
@@ -128,66 +116,57 @@ menggunakan template yang bernama `to_do_list.html`**
 
 9. Untuk men-_solve_ semua _Test Case_, maka pertama - tama kalian harus membuat **konfigurasi URL**. Berikan 
 konfigurasi URL untuk `lab_3` (Buat berkas `urls.py` di dalam `lab_3`, lalu masukkan kode berikut) :
+    ```python
+        from django.conf.urls import url
+        from .views import index
+        #url for app
+        urlpatterns = [
+            url(r'^$', index, name='index'),
+        ]
+    ```
+10. Masukkan kode berikut kedalam `lab_3/views.py` untuk dapat menampilkan berkas `to_do_list.html`:
+    ```python
+        from django.shortcuts import render
+        # Create your views here.
+        diary_dict = {}
+        def index(request):
+            return render(request, 'to_do_list.html', {'diary_dict' : diary_dict})
+    ```
+11. Sisipkan kode berikut kedalam konfigurasi URL untuk `lab_3` ke dalam `praktikum/urls.py`:
+    ```python
+        ...........
+        import lab_3.urls as lab_3
+        ...........
 
-```python
-    from django.conf.urls import url
-    from .views import index
-    #url for app
-    urlpatterns = [
-        url(r'^$', index, name='index'),
-    ]
-```
-10. Masukkan kode berikut kedalam `lab_3/views.py` untuk dapat menampilkan berkas `to_do_list.html` 
+        urlpatterns = [
+            .............
+            url(r'^lab-3/', include(lab_3,namespace='lab-3')),
+        ]
+    ```
+    `.....` menandakan kode kalian yang sudah ada, sehingga kode yang tertulis disini cukup kalian sisipkan bukan untuk di _copy-paste_
 
-```python
-    from django.shortcuts import render
-    # Create your views here.
-    diary_dict = {}
-    def index(request):
-        return render(request, 'to_do_list.html', {'diary_dict' : diary_dict})
-
-```
-11. Sisipkan kode berikut kedalam konfigurasi URL untuk `lab_3` ke dalam `praktikum/urls.py` 
-
-```python
-    ...........
-    import lab_3.urls as lab_3
-    ...........
-    
-    urlpatterns = [
-        .............
-        url(r'^lab-3/', include(lab_3,namespace='lab-3')),
-    ]
-```
-
-`.....` menandakan kode kalian yang sudah ada, sehingga kode yang tertulis disini cukup kalian sisipkan bukan untuk
-di _copy-paste_
-
-12. Silahkan jalankan _test_ kalian lagi
+12. Silahkan jalankan _test_ kalian lagi maka kalian bisa melihat semua _Test Case_ akan ter-_solved_
 
     > `python manage.py test`
-
-Kalian bisa melihat semua _Test Case_ akan ter-_solved_
-
+    
 13. Untuk membuat fitur yang akan menambahkan dan menampilkan _list_ aktifitas maka pertama - tama kalian harus membuat 
 **models** terlebih dahulu. Sisipkan _Test Case_ berikut kedalam `lab_3/tests.py` :
+    ```python
+        .........
+        from .models import Diary
+        from django.utils import timezone
 
-```python
-    .........
-    from .models import Diary
-    from django.utils import timezone
+        class Lab3Test(TestCase):
+            ......................
+            def test_model_can_create_new_activity(self):
+                #Creating a new activity
+                new_activity = Diary.objects.create(date=timezone.now(),activity='Aku mau latihan ngoding deh')
 
-    class Lab3Test(TestCase):
-        ......................
-        def test_model_can_create_new_activity(self):
-            #Creating a new activity
-            new_activity = Diary.objects.create(date=timezone.now(),activity='Aku mau latihan ngoding deh')
-    
-            #Retrieving all available activity
-            counting_all_available_activity = Diary.objects.all().count()
-            self.assertEqual(counting_all_available_activity,1)    
-```
-13. Jalankan _Test Case_ kalian, maka akan kembali muncul _Error_ pada _Test Case_
+                #Retrieving all available activity
+                counting_all_available_activity = Diary.objects.all().count()
+                self.assertEqual(counting_all_available_activity,1)
+    ```
+14. Jalankan _Test Case_ kalian, maka akan kembali muncul _Error_ pada _Test Case_
 
     > Trivia
     >
@@ -195,18 +174,17 @@ Kalian bisa melihat semua _Test Case_ akan ter-_solved_
     terlebih dahulu, dan ketika dijalankan _Test Case_ tersebut harus _Error_ (RED). Selanjutnya kalian harus membuat
     suatu fungsi yang menyelesaikan _Test Case_ tersebut (GREEN)
     
-14. Buatlah sebuah **models** bernama `Diary` di dalam berkas `lab_3/models.py`:
+15. Buatlah sebuah **models** bernama `Diary` di dalam berkas `lab_3/models.py`:
+    ```python
+        from django.db import models
 
-```python
-    from django.db import models
-    
-    # Create your models here.
-    class Diary(models.Model):
-        date = models.DateTimeField()
-        activity = models.TextField(max_length=60)    
-```
+        # Create your models here.
+        class Diary(models.Model):
+            date = models.DateTimeField()
+            activity = models.TextField(max_length=60)
+    ```
 
-15. Jalankan _Test Case_ kalian (`python manage.py test`), maka akan kembali muncul _Error_ pada _Test Case_ 
+16. Jalankan _Test Case_ kalian (`python manage.py test`), maka akan kembali muncul _Error_ pada _Test Case_
 
     > Loh Kenapa?
     >
@@ -214,38 +192,31 @@ Kalian bisa melihat semua _Test Case_ akan ter-_solved_
     >
     > Jalankan perintah `python manage.py makemigrations` dan `python manage.py migrate` untuk menerapkan 
     > perubahan yang sudah kamu lalukan pada semua berkas `models.py`     
-16. Buka kembali berkas `lab_3/tests/py` lalu tambahkan kode berikut pada baris paling akhir :
+
+17. Buka kembali berkas `lab_3/tests.py` lalu tambahkan kode berikut pada baris paling akhir :
     ```python
-        from django.shortcuts import render, redirect
-        from .models import Diary
-        from datetime import datetime
-        import pytz
-        import json
-        # Create your views here.
-        diary_dict = {}
-        def index(request):
-            diary_dict = Diary.objects.all().values()
-            return render(request, 'to_do_list.html', {'diary_dict' : convert_queryset_into_json(diary_dict)})
-        
-        def add_activity(request):
-            if request.method == 'POST':
-                date = datetime.strptime(request.POST['date'],'%Y-%m-%dT%H:%M')
-                Diary.objects.create(date=date.replace(tzinfo=pytz.UTC),activity=request.POST['activity'])
-                return redirect('/lab-3/')
-        
-        def convert_queryset_into_json(queryset):
-            ret_val = []
-            for data in queryset:
-                ret_val.append(data)
-            return ret_val
+        ........
+        class Lab3Test(TestCase):
+            ........
+            def test_can_save_a_POST_request(self):
+            response = self.client.post('/lab-3/add_activity/', data={'date': '2017-10-12T14:14', 'activity' : 'Maen Dota Kayaknya Enak'})
+            counting_all_available_activity = Diary.objects.all().count()
+            self.assertEqual(counting_all_available_activity, 1)
+
+            self.assertEqual(response.status_code, 302)
+            self.assertEqual(response['location'], '/lab-3/')
+
+            new_response = self.client.get('/lab-3/')
+            html_response = new_response.content.decode('utf8')
+            self.assertIn('Maen Dota Kayaknya Enak', html_response)
     ```
-17. Setelah itu jalankan kembali _Test Case_ ( `python manage.py test` ) , akan muncul _error_.
-    > Contoh potongan kode _error_ yang muncul seperti 
+18. Setelah itu jalankan kembali _Test Case_ ( `python manage.py test` ) , akan muncul _error_.
+     > Contoh potongan kode _error_ yang muncul seperti
      > from .views import index, add_activity
      > 
      > ImportError: cannot import name 'add_activity'
-     >     
-18. Buka berkas `lab_3/views.py` dan tambahkan baris kode berikut : 
+
+19. Buka berkas `lab_3/views.py` dan tambahkan baris kode berikut : 
     ```python
     from .models import Diary
     from datetime import datetime
@@ -257,7 +228,7 @@ Kalian bisa melihat semua _Test Case_ akan ter-_solved_
             Diary.objects.create(date=date.replace(tzinfo=pytz.UTC),activity=request.POST['activity'])
             return redirect('/lab-3/')
     ```
-19. Kemudian pada berkas `lab_3/urls` tambahkan kode berikut : 
+20. Kemudian pada berkas `lab_3/urls.py` tambahkan kode berikut : 
      ```python
     ...
     from .views import add_activity
@@ -266,13 +237,13 @@ Kalian bisa melihat semua _Test Case_ akan ter-_solved_
         url(r'add_activity/$', add_activity, name='add_activity'),
     ]
      ```
-20. Jalankan kembali _test_ untuk memastikan bahwa akan muncul _Error_
+21. Jalankan kembali _test_ untuk memastikan bahwa akan muncul _Error_
 
     >Hal ini dikarenakan data kalian sudah bisa dibuat di _Database_, namun data tersebut
     belum ditampilkan ke halaman depan. Untuk itu kita harus menampilkan kembali semua data yang sudah
     kita simpan di _Database_ 
 
-21. Untuk menampilkan data yang sudah tersimpman di _Database_ maka ubah kode yang ada 
+22. Untuk menampilkan data yang sudah tersimpan di _Database_ maka ubah kode yang ada
 di `lab_3/views.py` sehingga menjadi seperti berikut:
 
     ```python
@@ -298,13 +269,14 @@ di `lab_3/views.py` sehingga menjadi seperti berikut:
         for data in queryset:
             ret_val.append(data)
         return ret_val
-     ```
-22. Coba jalankan _test_ kalian dan (seharusnya) _test_ kalian akan **passed**
-    >....................
-    >
-    >Ran 19 Test Ok
+    ```
 
-##Checklist
+23. Coba jalankan _test_ kalian dan (seharusnya) _test_ kalian akan **passed**
+    > ....................
+    >
+    > Ran 19 Test Ok
+
+## Checklist
 
 1. Semua Halaman di URL `/lab-2/`, `/lab-2-addon/`, dan `/lab-3/` memiliki _Navigation Bar_
     1. [ ] Terdapat `base.html` di dalam _folder_ templates di _Root Folder_
@@ -332,4 +304,3 @@ Validasi perlu dilakukan selain di browser (HTML5 atau Java-Script) dan
 3. [ ] _Input Validation_ di-server dalam bentuk
 exception handling (sebagai bagian dari _best-practices_ yang salah satu manfaatnya
 untuk antisipasi _injection_).
-
