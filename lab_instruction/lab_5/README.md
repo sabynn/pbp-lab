@@ -1056,4 +1056,17 @@ Cukup kerjakan salah satu nya saja:
     ```python
         # check the returned result
             assert 'Berhasil menambahkan Todo' in selenium.page_source
+<<<<<<< HEAD
     ```
+
+### Additional Info
+
+Untuk implementasi lengkap semua _Checklist_ bisa dilihat di [sini](https://igun-lab.herokuapp.com/lab-5/)
+
+Credit by [@EdisonTantra](https://gitlab.com/EdisonTantra), [@falsewaly](https://gitlab.com/falsewaly), 
+[@fajrinajiseno](https://gitlab.com/fajrinajiseno), and [@glory.finesse](https://gitlab.com/glory.finesse).
+
+Verified by [@hafiyyan94](https://gitlab.com/hafiyyan94) and [@KennyDharmawan](https://gitlab.com/KennyDharmawan)
+=======
+    ```
+>>>>>>> f1756ed5c1035108ef18d7d4cf4783ebd1b5757a
