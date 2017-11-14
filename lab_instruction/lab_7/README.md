@@ -314,12 +314,6 @@ Silahkan tambah pengetahuan kalian, google adalah teman kalian yang baik.
         friends = [obj.as_dict() for obj in Friend.objects.all()]
         return JsonResponse({"results": friends}, content_type='application/json')
 
-
-    def friend_list_json(request):
-        friends = [obj.as_dict() for obj in Friend.objects.all()]
-        return JsonResponse({"results": friends}, content_type='application/json')
-
-
     @csrf_exempt
     def add_friend(request):
         if request.method == 'POST':
