@@ -309,6 +309,10 @@ Silahkan tambah pengetahuan kalian, google adalah teman kalian yang baik.
         response['friend_list'] = friend_list
         html = 'lab_7/daftar_teman.html'
         return render(request, html, response)
+    
+    def friend_list_json(request): # update
+        friends = [obj.as_dict() for obj in Friend.objects.all()]
+        return JsonResponse({"results": friends}, content_type='application/json')
 
 
     def friend_list_json(request):
@@ -498,7 +502,7 @@ Silahkan tambah pengetahuan kalian, google adalah teman kalian yang baik.
                     $("#friend-list").append(html)
                 },
                 error : function (error) {
-                    alert("Mahasiswa tersebut sudah ditambahkan sebagai teman")
+                    alert(error.responseText)
                 }
             });
         };
@@ -562,7 +566,7 @@ Silahkan tambah pengetahuan kalian, google adalah teman kalian yang baik.
                 {# lengkapi pemanggilan ajax berikut untuk mengambil daftar teman yang ada di database #}
                 $.ajax({
                     method: "GET",
-                    url: #URL untuk mendapatkan list teman],
+                    url: "{% url 'lab-7:get-friend-list' %}", // update
                     success: function (response) {
                         #tampilkan list teman ke halaman
                         #hint : gunakan fungsi jquery append()
