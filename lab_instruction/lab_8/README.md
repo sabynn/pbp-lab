@@ -51,9 +51,10 @@ Untuk menggunakan API dari facebook, pertama-tama kita harus membuat dan mendaft
 
 1. Buka https://developers.facebook.com/
 2. Daftar Sebagai Pengembang Facebook
-3. Buat Aplikasi baru
-4. Tambahkan Facebook Login
-5. Pada bagian setinggin silahkan tambahkan platform dan pilih website, lalu sesuaikan isi dari site url
+3. Buat Aplikasi baru dengan mengklik tombol **Add a New App ** dapat ditemukan di kanan atas
+4. Masuk ke halaman aplikasi yang sudah dibuat dan pilih **Add Product**, kemudian tambahkan **Facebook Login**
+5. Pada bagian setting silakan tambahkan platform dan pilih website, lalu sesuaikan isi dari site url. 
+   Cara lain: Anda mungkin juga mendapati halaman **Quickstart**, pilih **Web** sebagai platform.
 6. Applikasi telah berhasil didaftarkan.
 
 Setelah mendaftarkan applikasi, kita akan mencoba beberapa fitur dari Facebook API dengan menggunakan oauth(Facebook Login)
@@ -89,7 +90,7 @@ _The Facebook SDK for JavaScript doesn't have any standalone files that need to 
 
 _jangan lupa tambahkan `lab8.js` pada base.html anda_
 
-2. Ganti _{your-app-id}_ dan _{latest-api-version}_ dengan api-id dan api-version yang berada pada dashboard
+2. Ganti _{your-app-id}_ dan _{latest-api-version}_ dengan **App ID** dan **Api Version** yang dapat diperoleh dari halaman **Dashboard** aplikasi di https://developers.facebook.com/ milik Anda
 
 3. Membuat file `lab_8.html`, pada file `lab_8.html` silahkan tambahkan button login melalui Facebook
 
