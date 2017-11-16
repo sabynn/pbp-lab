@@ -51,7 +51,7 @@ Untuk menggunakan API dari facebook, pertama-tama kita harus membuat dan mendaft
 
 1. Buka https://developers.facebook.com/
 2. Daftar Sebagai Pengembang Facebook
-3. Buat Aplikasi baru dengan mengklik tombol **Add a New App ** dapat ditemukan di kanan atas
+3. Buat Aplikasi baru dengan mengklik tombol **Add a New App** dapat ditemukan di kanan atas
 4. Masuk ke halaman aplikasi yang sudah dibuat dan pilih **Add Product**, kemudian tambahkan **Facebook Login**
 5. Pada bagian setting silakan tambahkan platform dan pilih website, lalu sesuaikan isi dari site url. 
    Cara lain: Anda mungkin juga mendapati halaman **Quickstart**, pilih **Web** sebagai platform.
