@@ -456,8 +456,6 @@ kalian juga harus memahami perbedaan pada Cookies, Session Storage dan Local Sto
     ```
 1. Pada lab kali ini, tidak menggunakan model
 1. Buatlah berkas `lab_9/templates/lab_9/layout/base.html`
-   > Perhatikan bahwa tidak disediakan berkas CSS atau berkas Header dan Footer. 
-   Kalian diminta untuk mendesain tampilan web kalian sehingga memiliki tampilan sebagus mungkin   
     ```html
     {% load staticfiles %}
     <!DOCTYPE html>
@@ -526,13 +524,17 @@ kalian juga harus memahami perbedaan pada Cookies, Session Storage dan Local Sto
     </body>
     </html>
     ```
-
-   Perhatikan bahwa kita akan menggunakan 2 metode: Session dan Cookies. 
-   Folder berkas html nya dipisahkan namun berkasnya memiliki nama yang sama, 
-   sehingga disarakan teliti dalam membuat struktur direktori agar tidak salah panggil.
+    
+    > Perhatikan bahwa tidak disediakan berkas CSS atau berkas Header dan Footer. 
+    Kalian diminta untuk mendesain tampilan web kalian sehingga memiliki tampilan sebagus mungkin
+    
+Perhatikan bahwa kita akan menggunakan 2 metode: Session dan Cookies. 
+Folder berkas html nya dipisahkan namun berkasnya memiliki nama yang sama, 
+sehingga disarakan teliti dalam membuat struktur direktori agar tidak salah panggil.
       
 #### Implementasi Session
-1. Session Login: Buatlah berkas `lab_9/templates/lab_9/session/login.html`
+1. Session Login: Buatlah berkas `lab_9/templates/lab_9/session/login.html` untuk simulasi login menggunakan _session_
+    
     ```html
     {% extends "lab_9/layout/base.html" %}
     {% block content %}
@@ -560,6 +562,7 @@ kalian juga harus memahami perbedaan pada Cookies, Session Storage dan Local Sto
     </div>
     {% endblock %}
     ```
+    
 1. Session Profile: Buatlah berkas `lab_9/templates/lab_9/session/profile.html`
     ```html
     {% extends "lab_9/layout/base.html" %}
