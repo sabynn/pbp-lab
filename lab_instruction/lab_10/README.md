@@ -581,8 +581,6 @@ membuat sebuah _web_ yang baik dengan kreasi kalian sendiri.
 
 1. Autentikasi :
     1. [ ] Implementasi fungsi Login & Logout
-    1. [ ] Melakukan pengecekan setiap mengakses suatu halaman, apakah sudah login 
-    apa belum (jika belum login, arahkan ke halaman login)
     1. [ ] Jelaskan Bagaimana Django Apps kalian mengetahui bahwa setiap _user_ yang menagkses Apps kalian,
     akan dilayani secara berbeda? (Data milik pengguna tidak akan saling tertukar). Tunjukkan didalam baris kode
     
