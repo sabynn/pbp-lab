@@ -22,6 +22,8 @@ UnitTest:
   script:
     - coverage run --include='lab_*/*' manage.py test
     - coverage report -m
+  only:
+    - master
 
 Deployment:
   image: ruby:2.4
@@ -36,3 +38,5 @@ Deployment:
   environment:
     name: production
     url: $HEROKU_APP_HOST
+  only:
+    - master
