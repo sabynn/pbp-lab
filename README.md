@@ -1,7 +1,6 @@
 # Tutorials and Assignment Repository
 
-CSGE602022 - Web Design & Programming (Perancangan & Pemrograman Web) @
-Faculty of Computer Science Universitas Indonesia, Odd Semester 2017/2018
+CSGE602022 - Platform-Based Programming (Pemrograman Berbasis Platform) @ Faculty of Computer Science Universitas Indonesia, Odd Semester 2021/2022
 
 ---
 
@@ -12,16 +11,8 @@ This repository hosts weekly tutorial codes and other, such as course-related
 code snippets.
 
 1. Weekly Exercises
-   1. [Lab 1](lab_1/README.md) - Introduction to Git (on GitLab) & TDD (Test-Driven Development) with Django
-   2. [Lab 2](lab_2/README.md) - Introduction to Django Framework
-   3. [Lab 3](lab_instruction/lab_3/README.md) - Introduction to _Models_ Django and Heroku Database with TDD Discipline
-   4. [Lab 4](lab_instruction/lab_4/README.md) - Pengenalan _HTML5_
-   5. [Lab 5](lab_instruction/lab_5/README.md) - Pengenalan _CSS_
-   6. [Lab 6](lab_instruction/lab_6/README.md) - Pengenalan _Javascript dan JQuery_
-   7. [Lab 7](lab_instruction/lab_7/README.md) - Pengenalan _Web Service_
-   8. [Lab 8](lab_instruction/lab_8/README.md) - Pengenalan Pengenalan _Oauth2_
-   9. [Lab 9](lab_instruction/lab_9/README.md) - Oauth, _Webservice_, beserta Pengenalan _Cookie_ dan _Session_
-   10. [Lab 10](lab_instruction/lab_10/README.md) - Penerapan Lanjut _Cookie_ dan _Session_
+   1. [Lab 0](lab_instruction/lab_0/README.md) - Introduction to Git (on GitLab)
+   2. [Lab 1](lab_instruction/lab_1/README.md) - Introduction to MTV Django Architecture
 2. [Quickstart Guide](#tldr)
 3. [Initial Setup](#initial-setup)
 4. [Doing the Tutorial](#doing-the-tutorial)
@@ -31,9 +22,9 @@ code snippets.
 
 ## TL;DR
 
-After you work at [Lab 1](lab_1/README.md), make sure to link this repository to your Lab 1 Repository :
+After you work at [Lab 1](lab_instruction/lab_1/README.md), make sure to link this repository to your Lab 1 Repository :
 
-1. Add this repository link to your remote list as `upstream` (`git remote add upstream https://gitlab.com/PPW-2017/ppw-lab`)
+1. Add this repository link to your remote list as `upstream` (`git remote add upstream https://gitlab.com/PBP-2021/pbp-lab`)
 2. Pull the latest update to check whether new tutorials have been updated (`git pull upstream master`)
 3. Fix any merge conflict(s) that might arise (hopefully none)
    - Always choose latest commit from `upstream` when fixing merge
@@ -60,16 +51,16 @@ If you previously haven't worked on [Lab 1](lab_1/README.md) Tutorial
 1. then Create a fork of this repository to your GitLab account, which will
    create a copy of this repository under your own account.
 2. Open the forked repository page at
-   `https://gitlab.com/<YOURNAME>/ppw-lab` where `<YOURNAME>`
+   `https://gitlab.com/<YOURNAME>/pbp-lab` where `<YOURNAME>`
    is your GitLab username.
 3. Set the clone URL to HTTPS and copy the URL into clipboard.
 4. Clone the repository into your local machine. Use Git command:
-   `git clone https://gitlab.com/<YOURNAME>/ppw-lab.git <PATH>`
+   `git clone https://gitlab.com/<YOURNAME>/pbp-lab.git <PATH>`
    where `<PATH>` is a path to a directory in your local machine.
 5. Go to the directory where the cloned repository is located in your
    local machine.
 6. Add new remote called **upstream** that points to the original
-   GitLab repository. Use Git command: `git remote add upstream https://gitlab.com/PPW-2017/ppw-lab`
+   GitLab repository. Use Git command: `git remote add upstream https://gitlab.com/PBP-2021/pbp-lab`
 7. Tell your TA about your GitLab username and URL to your tutorial
    repository so s/he can grade it later.
 8. Ensure that your repository page has visibility level set to
@@ -79,7 +70,7 @@ If you previously haven't worked on [Lab 1](lab_1/README.md) Tutorial
 If you did [Lab 1](lab_1/README.md) Tutorial
 
 1. Add new remote called **upstream** that points to the original
-   GitLab repository. Use Git command: `git remote add upstream git remote add upstream https://gitlab.com/PPW-2017/ppw-lab`
+   GitLab repository. Use Git command: `git remote add upstream git remote add upstream https://gitlab.com/PBP-2021/pbp-lab`
 2. Tell your TA about your GitLab username and URL to your tutorial
    repository so s/he can grade it later.
 3. Ensure that your repository page has visibility level set to
@@ -88,12 +79,12 @@ If you did [Lab 1](lab_1/README.md) Tutorial
 
 ## Doing the Tutorial
 
-1. Suppose that you want to work on Lab 2 problem set. Go to the
-   directory that containing Lab 2 README.md.
-2. To ensure your work regarding Lab 2 problem is isolated from
+1. Suppose that you want to work on Lab 1 problem set. Go to the
+   directory that containing Lab 1 README.md.
+2. To ensure your work regarding Lab 1 problem is isolated from
    your other attempts on other problems, create a new apps
-   specifically for working on Lab 2 problem. Use Python command:
-   `python manage.py startapp lab_2`
+   specifically for working on Lab 1 problem. Use Python command:
+   `python manage.py startapp lab_1`
 3. Read the README file carefully because It contains set of tasks and instructions that you can work on.
 4. Do the tutorial.
 5. Use `git add` or `git rm` to stage/unstage files that you want to
@@ -131,7 +122,7 @@ forget to push it back to your own GitLab repository. Use Git command:
    TOTAL\s+\d+\s+\d+\s+(\d+)%
    ```
 4. Save the changes.
-5. To add coverage badge to gitlab like: [![Pipeline](https://gitlab.com/lepiku/ppw-lab/badges/master/pipeline.svg)](https://gitlab.com/lepiku/ppw-lab/pipelines) [![Coverage](https://gitlab.com/lepiku/ppw-lab/badges/master/coverage.svg)](https://gitlab.com/lepiku/ppw-lab/pipelines)
+5. To add coverage badge to gitlab like: [![Pipeline](https://gitlab.com/PBP-2021/pbp-lab/badges/master/pipeline.svg)](https://gitlab.com/PBP-2021/pbp-lab/pipelines) [![Coverage](https://gitlab.com/PBP-2021/pbp-lab/badges/master/coverage.svg)](https://gitlab.com/PBP-2021/pbp-lab/pipelines)
    - On top of the project:
      1. Go to General Settings (`Settings -> General`)
      2. Go to section Badges
@@ -152,11 +143,82 @@ forget to push it back to your own GitLab repository. Use Git command:
      2. Change `YOUR_GITLAB_USERNAME` and `YOUR_REPOSITORY_NAME` to match your
         repository. example for this repository:
         ```
-        [![Pipeline](https://gitlab.com/ppw-2020/ppw-lab/badges/master/pipeline.svg)](https://gitlab.com/ppw-2020/ppw-lab/pipelines)
-        [![Coverage](https://gitlab.com/ppw-2020/ppw-lab/badges/master/coverage.svg)](https://gitlab.com/ppw-2020/ppw-lab/pipelines)
+        [![Pipeline](https://gitlab.com/PBP-2021/pbp-lab/badges/master/pipeline.svg)](https://gitlab.com/PBP-2021/pbp-lab/pipelines)
+        [![Coverage](https://gitlab.com/PBP-2021/pbp-lab/badges/master/coverage.svg)](https://gitlab.com/PBP-2021/pbp-lab/pipelines)
         ```
 6. Run a new pipeline for them to get updated. You can **push** a new commit
    or **retry** your last pipeline.
+
+## Tutorial: Running Your Django Project
+
+1. Get a copy of Repo PBP
+   from one of your working station (PC Lab, laptop or homedesktop).
+   in one of your working station (PC Lab, laptop or homedesktop) by executing the clone command.
+
+It is possible to download and extract it to a different directory
+
+2. Create a new project on GitLab where you will store this exercise.
+
+3. Go to the directory where you extracted the Repo PBP and initialize
+   the directory into a Git repository.
+4. Add new Git remote that link the local Repo PBP repository to your
+   new GitLab repository.
+
+At this stage, you are now ready to continue the tutorial. To save your progress,
+please add any new/modified file(s) and folder(s) to local Git repository and
+save it as one or more commits. Once you are done or want to ensure your progress
+is stored on GitLab, use `git push` to push your commits.
+
+Now please proceed to the instructions as follows.
+
+1.  Create a **virtual environment** for this tutorial by using this command:
+
+    ```bash
+    python -m venv env
+    ```
+
+    > Make sure that you executed the command in the root path of the repository.
+
+2.  Activate your virtual environment and install required packages. Note that
+    the command for activating virtual environment is different on Windows and
+    Unix-based OS.
+
+        Windows:
+
+        ```bash
+        env\Scripts\activate.bat
+        pip install -r requirements.txt
+        ```
+
+        Linux & Mac OS:
+
+        ```bash
+        source env/bin/activate
+        pip install -r requirements.txt
+        ```
+
+3.  Use your favourite editor to edit the code (Vim, VS Code, Atom) or use IDE (PyCharm).
+
+4.  Let's try running the Web locally in your machine. Run it by typing:
+
+    ```bash
+    python manage.py runserver 8000
+    ```
+
+    > Ensure the current active directory in your shell/command-prompt
+    > is in the folder containing `manage.py` before executing the command
+    > above
+
+5.  Access your local Web server by using your favorite Web browser. Put the
+    address into your browser: `http://localhost:8000`
+6.  See your work is shown in Web page rendered by browser.
+7.  When you are done with your tutorial or you want to switch to another
+    Python project, do not forget to deactivate your virtual environment. You
+    can do so by executing:
+
+        ```bash
+        deactivate
+        ```
 
 ## Grading Scheme & Demonstration
 
@@ -185,3 +247,21 @@ International classes:
    **do all checklists**
 
 ### Happy Coding :)
+
+## Additional Resources
+
+- [Git Tutorials & Training by Atlassian](https://www.atlassian.com/git/tutorials)
+- [Try Git in your Web browser](https://try.github.io)
+- [Pro Git e-Book by Scott Chacon & Ben Straub](https://git-scm.com/book/en/v2)
+- [Graph theory](http://think-like-a-git.net/sections/graph-theory.html) and
+  [its application in Git](http://think-like-a-git.net/sections/graphs-and-git.html)
+- [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/)
+
+## Credits
+
+This document is based on [Exercise 0: Introduction to Git](https://gitlab.com/CSUI-AdvProg-2017/lab-exercises)
+written by Advanced Programming 2017 Teaching Team ([@addianto](https://gitlab.com/addianto),
+[@muhammad.ardhan](https://gitlab.com/muhammad.ardhan), [@fbenarto](https://gitlab.com/fbenarto),
+et al.). The section about branching and handling merge conflicts are omitted
+in this document to make sure the Git tutorial can be completed by students during
+Web Design & Programming lab session.

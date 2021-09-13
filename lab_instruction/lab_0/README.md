@@ -1,7 +1,7 @@
-# Lab 1: Introduction to Git (on GitLab)
+# Lab 0: Introduction to Git (on GitLab)
 
-CSGE602022 - Web Design & Programming (Perancangan & Pemrograman Web) @
-Faculty of Computer Science Universitas Indonesia, Odd Semester 2017/2018
+CSGE602022 - Platform-Based Programming (Pemrograman Berbasis Platform) @
+Faculty of Computer Science Universitas Indonesia, Odd Semester 2021/2022
 
 ---
 
@@ -40,13 +40,14 @@ Before doing this exercise and any subsequent exercises later, make sure you hav
 installed the following tools:
 
 - [Git](https://git-scm.com/downloads)
-- [Python 3.6.2](https://www.python.org/downloads/release/python-362/)
+- [Python 3.8.12](https://www.python.org/downloads/release/python-3812/)
 - [EditorConfig](http://editorconfig.org)
-- A **good** text editor, e.g.
+- A **good** text editor or IDE, e.g.
   [Vim](http://www.vim.org/download.php),
   [Visual Studio Code](https://code.visualstudio.com/),
-  [Sublime](https://www.sublimetext.com/), or
-  [Atom](https://atom.io)
+  [Sublime](https://www.sublimetext.com/),
+  [Atom](https://atom.io) and
+  [PyCharm](https://www.jetbrains.com/pycharm/)
 
   > Regardless your choice of text editor, try to learn how to use Vim
   > because it is the default editor in Git. At least, know how to
