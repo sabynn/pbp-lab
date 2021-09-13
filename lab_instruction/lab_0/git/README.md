@@ -1,4 +1,4 @@
-# Tutorial Git
+# Git
 
 [Git](https://git-scm.com) is a version control system that commonly used
 to track changes in software artefact (e.g. source code, HTML pages, stylesheets).
@@ -10,19 +10,24 @@ directed edge(s) represent the connection from a commit to its subsequent commit
 ## Install git
 
 - Download
-  - [Windows 64-bit](https://github.com/git-for-windows/git/releases/download/v2.23.0.windows.1/Git-2.23.0-64-bit.exe)
+
+  - [Windows 64-bit](https://github.com/git-for-windows/git/releases/download/v2.33.0.windows.2/Git-2.33.0.2-64-bit.exe)
+
+- Run the installer
+  - Windows: execute the downloaded file
   - Linux (Ubuntu): `sudo apt install git`
-- run the installer
+  - macOS: `brew install git`
 
 ## Terminal Commands
 
 - `cd` (change directory) : Change directory to outside or inside a folder.
 - `dir` (directory?) : show files in the current directory
-  > in Ubuntu / Linux, use `ls` (list)
+  > in Linux / macOS, use `ls` (list)
 - `mkdir <folder_name>` (make directory) : create new folder
 - `del <file_name>` (delete) : delete a file
-  > in Ubuntu / Linux, use `rm` (remove)
+  > in Linux / macOS, use `rm <file_name>` (remove)
 - `rmdir <folder_name>` (remove directory) : delete a folder
+  > in Linux / macOS, use `rm -rf <folder_name>` (remove)
 
 ## Commands
 
