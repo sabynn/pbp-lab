@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import Friend
 
-# TODO Register Friend model here
+admin.site.register(Friend)
+

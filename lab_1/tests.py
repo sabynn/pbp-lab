@@ -27,10 +27,8 @@ class Lab1UnitTest(TestCase):
 
     def test_calculate_age_is_correct(self):
         self.assertEqual(0, calculate_age(date.today().year))
-        # TODO fix unit test if failed
-        self.assertEqual(17, calculate_age(2000))
-        # TODO fix unit test if failed
-        self.assertEqual(27, calculate_age(1990))
+        self.assertEqual(21, calculate_age(2000))
+        self.assertEqual(31, calculate_age(1990))
 
     def test_index_contains_age(self):
         request = HttpRequest()
