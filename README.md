@@ -12,7 +12,8 @@ code snippets.
 
 1. Weekly Exercises
    1. [Lab 0](lab_instruction/lab_0/README.md) - Introduction to Git (on GitLab)
-   2. [Lab 1](lab_instruction/lab_1/README.md) - Introduction to MTV Django Architecture
+   2. [Lab 1](lab_instruction/lab_1/README.md) - Introduction to Django Framework
+   3. [Lab 2](lab_instruction/lab_2/README.md) - Data Delivery Using HTML, XML, and JSON
 2. [Quickstart Guide](#tldr)
 3. [Initial Setup](#initial-setup)
 4. [Doing the Tutorial](#doing-the-tutorial)
