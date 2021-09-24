@@ -160,3 +160,4 @@ ENV/
 db.sqlite3
 /PBPenv/
 /node_modules/
+.idea
