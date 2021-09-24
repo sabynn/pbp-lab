@@ -151,5 +151,12 @@ ENV/
 /lab-1/.idea/
 /lab-1/db.sqlite3/
 /lab-1/hello_name/migrations/*.py
+
+#Ignore files for Lab2
+/lab-2/.idea/
+/lab-2/db.sqlite3/
+/lab-2/hello_name/migrations/*.py
+
 db.sqlite3
-/lab_2/migrations/
+/PBPenv/
+/node_modules/
