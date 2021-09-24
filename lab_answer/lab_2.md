@@ -15,6 +15,6 @@
    - XML selalu menggunakan tag penutup, sementara HTML tidak selalu menggunakan tag penutup
 
 ### Referensi
-https://askanydifference.com/id/perbedaan-antara-json-dan-xml/
-https://blogs.masterweb.com/perbedaan-xml-dan-html/
+https://askanydifference.com/id/perbedaan-antara-json-dan-xml/ <br>
+https://blogs.masterweb.com/perbedaan-xml-dan-html/ <br>
 https://www.upgrad.com/blog/html-vs-xml/
