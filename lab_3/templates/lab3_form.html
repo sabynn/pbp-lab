@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Add Friend</title>
+     <style>
+      h1, form{
+        text-align: center;
+      }
+
+     </style>
+  </head>
+  <body>
+   <h1> Add Friend 🤍</h1>
+    <div>
+      <div>
+        <form method="POST" action="">
+          {%csrf_token%}
+          <div role="alert">
+            <p>Nama          : {{ form.name }}</p>
+            <p>NPM           : {{ form.npm }}</p>
+            <p>Tanggal Lahir : {{ form.dob }}</p>
+          </div>
+          <div>
+            <input type="submit" value="Submit"/>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>

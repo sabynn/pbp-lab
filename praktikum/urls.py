@@ -18,11 +18,13 @@ from django.urls import path, re_path
 from django.contrib import admin
 import lab_1.urls as lab_1
 import lab_2.urls as lab_2
+import lab_3.urls as lab_3
 from lab_1.views import index as index_lab1
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('lab-1/', include(lab_1)),
     path('lab-2/', include(lab_2)),
+    path('lab-3/', include(lab_3)),
     re_path(r'^$', index_lab1, name='index')
 ]
