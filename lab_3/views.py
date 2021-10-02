@@ -6,14 +6,12 @@ from lab_3.forms import FriendForm
 
 
 # Create your views here.
-@login_required(login_url='/admin/login/')
-
-
 def index(request):
     friends = Friend.objects.all()
     response = {'friends': friends}
     return render(request, 'lab3_index.html', response)
 
+@login_required(login_url='/admin/login/')
 
 def add_friend(request):
     form = FriendForm(request.POST)
