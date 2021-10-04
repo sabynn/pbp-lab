@@ -15,6 +15,7 @@ code snippets.
    2. [Lab 1](lab_instruction/lab_1/README.md) - Introduction to Django Framework
    3. [Lab 2](lab_instruction/lab_2/README.md) - Data Delivery Using HTML, XML, and JSON
    4. [Lab 3](lab_instruction/lab_3/README.md) - Form, Authentication, Session, and Cookie
+   5. [Lab 4](lab_instruction/lab_4/README.md) - Web Design Using HTML and CSS3
 2. [Quickstart Guide](#tldr)
 3. [Initial Setup](#initial-setup)
 4. [Doing the Tutorial](#doing-the-tutorial)
