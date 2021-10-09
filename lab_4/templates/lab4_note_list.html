@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    .card {
+        padding: 10px;
+        border: none;
+        cursor: pointer
+    }
+
+    .card:hover {
+        background-color: #e3f2fd
+    }
+    </style>
+    <meta charset="utf-8">
+    <title>Notes - Card View</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body style="background-color:#b3dcfa">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <div class="page-content container note-has-grid">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+          <a class="navbar-brand" href="{% url 'index_lab4' %}">FRIEND💙</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'index_lab4' %}">Table View <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'note_list_lab4' %}">Card View</a>
+              </li>
+            </ul>
+            <span class="nav-item">
+              <a class="nav-link" href="{% url 'add_note_lab4' %}">Add Notes +</a>
+            </span>
+          </div>
+        </nav>
+        <div class="tab-content bg-transparent" style="padding: 10px">
+            <div id="note-full-container" class="note-has-grid row">
+                {% for note in notes %}
+                <div class="col-md-4 single-note-item all-category">
+                    <div class="card card-body" >
+                        <h4 class="card-header" style="background-color: #e3f2fd;">{{ note.note_title }}</h4>
+                        <p class="note-person text-muted">From: {{ note.note_from }}</p>
+                        <p class="note-person text-muted">To: {{ note.note_to }}</p>
+                        <hr>
+                        <div class="note-content">
+                            <p class="note-inner-content text-muted">{{ note.note_message }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
