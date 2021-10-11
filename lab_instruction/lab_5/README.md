@@ -446,7 +446,7 @@ Tips: Anda dapat menggunakan endpoint yang sudah dibuat pada `lab-2` untuk memud
    1. [ ] Implement modal in `lab5_index.html` with HTML code so when we press the view button, it will show a single `Note`.
    2. [ ] Create `get_note` method in `lab_5/views.py` that render HTML for our form.
    3. [ ] Implement `get_note` method so that you can get the selected `Note` with JSON format. For the example you can read the tutorial [here](https://www.geeksforgeeks.org/django-crud-create-retrieve-update-delete-function-based-views/).
-   4. [ ] Add `/notes/<id>` route into `lab_5/urls.py`, so you can call the endpoint by calling [http://localhost:8000/lab-5/notes/<id>](http://localhost:8000/lab-5/notes/<id>).
+   4. [ ] Add `/notes/<id>` route into `lab_5/urls.py`, so you can call the endpoint by calling [http://localhost:8000/lab-5/notes/notes_id](http://localhost:8000/lab-5/notes/<id>).
    5. [ ] Implement AJAX for loading a single `Note` data into the modal.
 
 8. Create form and modal for editing `Note`:
@@ -458,16 +458,16 @@ Tips: Anda dapat menggunakan endpoint yang sudah dibuat pada `lab-2` untuk memud
    5. [ ] Create `update_note` method in `lab_5/views.py` that render HTML for our form.
    6. [ ] Implement `update_note` method so that you can update the selected `Note` with data from the form. For the example you can read the tutorial [here](https://www.geeksforgeeks.org/django-crud-create-retrieve-update-delete-function-based-views/).
    7. [ ] Check request method in `update_note`. If the request method is `POST` then we need to return `status 200` and `Note instance` after validating form data and save the data if valid with JSON format. Use this tutorial for the [reference](https://www.pluralsight.com/guides/work-with-ajax-django).
-   8. [ ] Add `/notes/<id>/update` route into `lab_5/urls.py`, so you can call the endpoint by calling [http://localhost:8000/lab-5/notes/<id>/update](http://localhost:8000/lab-5/notes/<id>/update).
+   8. [ ] Add `/notes/<id>/update` route into `lab_5/urls.py`, so you can call the endpoint by calling [http://localhost:8000/lab-5/notes/notes_id/update](http://localhost:8000/lab-5/notes/<id>/update).
    9. [ ] Implement AJAX for updating selected `Note` and reload data on the table.
 
 9. Create form and modal for delete `Note`:
 
    1. [ ] Implement form with modal in `lab5_index.html` with HTML code so that it will render our form. Use `POST` as `method` in `<form>` tag.
    2. [ ] Create `delete_note` method in `lab_5/views.py` that render HTML for our form.
-   3. [ ] Implement `delete_note` method so that you can delete the selected `Note`. For the example you can read the tutorial [here]((https://www.geeksforgeeks.org/delete-view-function-based-views-django/).
+   3. [ ] Implement `delete_note` method so that you can delete the selected `Note`. For the example you can read the tutorial [here](https://www.geeksforgeeks.org/delete-view-function-based-views-django/).
    4. [ ] Check request method in `delete_note`. If the request method is `POST` then we need to return `status 200` with JSON format after succesfully delete selected `Note`. Use this tutorial for the [reference](https://www.pluralsight.com/guides/work-with-ajax-django).
-   5. [ ] Add `/notes/<id>/delete` route into `lab_5/urls.py`, so you can call the endpoint by calling [http://localhost:8000/lab-5/notes/<id>/delete](http://localhost:8000/lab-5/notes/<id>/delete).
+   5. [ ] Add `/notes/<id>/delete` route into `lab_5/urls.py`, so you can call the endpoint by calling [http://localhost:8000/lab-5/notes/notes_id/delete](http://localhost:8000/lab-5/notes/<id>/delete).
    6. [ ] Implement AJAX for deleting selected `Note` and reload data on the table.
 
 10. [ ] Try the application that you have built in this lab using Web Browser.
