@@ -21,15 +21,16 @@ Anda diminta untuk membuat sebuah app baru di dalam project ini bernama `lab_6` 
 2. Widget yang mendefinisikan posisi, margin, padding, cth: Padding, Scaffolding Widget, dll
 3. Widget yang membantu menerapkan theme / visual / structural element, cth: Theme Widget
 
-Tips: Anda dapat menggunakan endpoint yang sudah dibuat pada `lab-2` untuk memudahkan dalam pemanggilan AJAX.
-
 ## Checklist
 
 1. [ ] Go to directory `lab_6`in root directory (`pbp-lab`).
 2. [ ] Run `flutter create .` to initiate flutter in your `lab_6` directory
 3. [ ] Modify `lib/main.dart` rename to your application name
 4. [ ] Modify `lib/widgets/main_drawer.dart` to add more menus (if required)
-5. [ ] Modify screens as required. Samples can be found at `lib/screens` directory
+5. [ ] Modify screens as required to be as similar to your previous web application. Code samples can be found at `lib/screens` directory
+   1. [ ] I've already use basic widget in my modified screen
+   2. [ ] I've already use positioning widget in my modified screen
+   3. [ ] I've already use theme widget in my modified screen
 6. [ ] Try the application that you have built in this lab using Web Browser / Mobile Devices / Simulator.
 
 ## Referensi
