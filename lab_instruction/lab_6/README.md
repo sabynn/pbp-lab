@@ -24,14 +24,14 @@ Anda diminta untuk membuat sebuah app baru di dalam project ini bernama `lab_6` 
 ## Checklist
 
 1. [ ] Go to directory `lab_6`in root directory (`pbp-lab`).
-2. [ ] Run `flutter create .` to initiate flutter in your `lab_6` directory
+2. [ ] Run `flutter create .` to initiate flutter in your `lab_6` directory. If you would like to try `lab_6` boilerplate, just run `flutter run`.
 3. [ ] Modify `lib/main.dart` rename to your application name
 4. [ ] Modify `lib/widgets/main_drawer.dart` to add more menus (if required)
 5. [ ] Modify screens as required to be as similar to your previous web application. Code samples can be found at `lib/screens` directory
    1. [ ] I've already use basic widget in my modified screen
    2. [ ] I've already use positioning widget in my modified screen
    3. [ ] I've already use theme widget in my modified screen
-6. [ ] Try the application that you have built in this lab using Web Browser / Mobile Devices / Simulator.
+6. [ ] Try the application that you have built in this lab using Web Browser / Mobile Devices / Simulator, just run `flutter run`.
 
 ## Referensi
 
