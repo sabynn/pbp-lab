@@ -30,7 +30,7 @@ Tips: Anda dapat menggunakan endpoint yang sudah dibuat pada `lab-2` untuk memud
 3. [ ] Modify `lib/main.dart` rename to your application name
 4. [ ] Modify `lib/widgets/main_drawer.dart` to add more menus (if required)
 5. [ ] Modify screens as required. Samples can be found at `lib/screens` directory
-6. [ ] Try the application that you have built in this lab using Web Browser / Mobile Devices.
+6. [ ] Try the application that you have built in this lab using Web Browser / Mobile Devices / Simulator.
 
 ## Referensi
 
