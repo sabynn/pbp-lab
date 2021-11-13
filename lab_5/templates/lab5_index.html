@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .table>tbody>tr>th{
+            background-color: #e3f2fd;
+        }
+
+        .li.nav-item{
+            background-color: #e3f2fd;
+        }
+
+        tr:hover{
+            background-color: #e3f2fd;
+        }
+
+        tr{
+            cursor: pointer
+        }
+
+        .btn{
+            color: #fff;
+            background-color: #f4ad49;
+            border-bottom:2px solid #c38a3a;
+        }
+
+        #btn-1{
+            background-color: #FFF5DB;
+            border-bottom:2px solid #b3dcfa;
+        }
+
+        #btn-2{
+            background-color: #DBE7E3;
+            border-bottom:2px solid #b3dcfa;
+        }
+
+        #btn-3{
+            background-color: #F3CCB8;
+            border-bottom:2px solid #b3dcfa;
+        }
+
+    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body style="background-color:#b3dcfa">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <div class="page-content container note-has-grid">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+          <a class="navbar-brand" style="padding: 10px" href="{% url 'index_lab5' %}">FRIEND💙</a>
+        </nav>
+       <div class="tab-content bg-transparent">
+            <div id="note-full-container" class="note-has-grid row">
+                <div class="col-xl-12 single-note-item all-category">
+                    <div class="card card-body">
+                      <table class="table table-bordered " id="table-body" style="text-align: center">
+                        <tr>
+                          <th>From</th>
+                          <th>To</th>
+                          <th>Title</th>
+                          <th>Message</th>
+                        </tr>
+                          {% block javascript %}
+                            <script>
+                            $(document).ready(function(){
+                              $.ajax({
+                                  url: "/lab-2/json",
+                                  success: function(results){
+                                  console.log(results)
+                                      results.map((result)=>{
+                                        $("#table-body").append(`
+                                          <tr><td>${result.fields.note_from}</td>
+                                          <td>${result.fields.note_to }</td>
+                                          <td>${result.fields.note_title}</td>
+                                          <td style="text-align:center;">
+                                              <div class="btn-group" role="group" aria-label="Basic example">
+                                              <button class="btn" id="btn-1" value="${result.pk}"><i class="fa fa-eye"></i>  View</button><br>
+                                              <button class="btn" id="btn-2"><i class="fa fa-pencil"></i>  Edit</button><br>
+                                              <button class="btn" id="btn-3" value="${result.pk}"><i class="fa fa-trash"></i>  Delete</button>
+                                              </div>
+                                          </td></tr>`)
+                                      }
+                                    )
+                                  }
+                                }
+                              );
+                            });
+                            </script>
+                          <script>
+                          $(document).ready(function () {
+                            $("#tablebody").on('click', '#btn-1', function() {
+                              console.log("MASUK")
+                              var pk = $(this).attr("value");
+                                $.ajax({
+                                  url: `/lab-5/notes/${pk}`,
+                                  success: function (result) {
+                                    $("#modal").css("display", "flex");
+                                    document.getElementById("msg-title").innerText = result.fields.title;
+                                    document.getElementById("msg-from").innerText = result.fields.sender;
+                                    document.getElementById("msg-to").innerText = result.fields.to;
+                                    document.getElementById("msg").innerText = result.fields.message;
+                                  },
+                                });
+                              });
+                          });
+
+                          $(".close").click(() => {
+                            $("#modal").css("display", "none");
+                          });
+
+                        </script>
+
+                            {% endblock javascript %}
+                      </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
