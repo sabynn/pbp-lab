@@ -50,15 +50,19 @@ class TipsAndTricksListPage extends StatelessWidget {
                         ),
                       ),
                       enabledBorder: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: secondaryColor, width: 1.0),
+                        borderSide: BorderSide(
+                          color: secondaryColor,
+                          width: 1.0,
+                        ),
                         borderRadius: BorderRadius.all(
                           Radius.circular(32.0),
                         ),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: darkSecondaryColor, width: 2.0),
+                        borderSide: BorderSide(
+                          color: darkSecondaryColor,
+                          width: 2.0,
+                        ),
                         borderRadius: BorderRadius.all(
                           Radius.circular(32.0),
                         ),
@@ -72,7 +76,10 @@ class TipsAndTricksListPage extends StatelessWidget {
               child: ListView.builder(
                 itemCount: listArticles.length,
                 itemBuilder: (context, index) {
-                  return buildArticleItem(context, listArticles[index]);
+                  return buildArticleItem(
+                    context,
+                    listArticles[index],
+                  );
                 },
               ),
             ),

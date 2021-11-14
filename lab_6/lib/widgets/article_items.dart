@@ -10,8 +10,10 @@ Widget buildArticleItem(BuildContext context, Article article) {
     child: Card(
       shadowColor: darkSecondaryColor,
       child: ListTile(
-        contentPadding:
-            const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
+        contentPadding: const EdgeInsets.symmetric(
+          vertical: 20.0,
+          horizontal: 20.0,
+        ),
         leading: Hero(
           tag: article.imageUrl,
           child: ClipRRect(
@@ -62,8 +64,11 @@ Widget buildArticleItem(BuildContext context, Article article) {
           ],
         ),
         onTap: () {
-          Navigator.pushNamed(context, ArticleDetailPage.routeName,
-              arguments: article);
+          Navigator.pushNamed(
+            context,
+            ArticleDetailPage.routeName,
+            arguments: article,
+          );
         },
       ),
     ),

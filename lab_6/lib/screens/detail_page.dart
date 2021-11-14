@@ -8,7 +8,7 @@ class ArticleDetailPage extends StatelessWidget {
 
   final Article article;
 
-  const ArticleDetailPage({required this.article});
+  const ArticleDetailPage({Key? key, required this.article}): super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -56,8 +56,11 @@ class ArticleDetailPage extends StatelessWidget {
                       child: Text('Read more'),
                     ),
                     onPressed: () {
-                      Navigator.pushNamed(context, ArticleWebView.routeName,
-                          arguments: article.articleUrl);
+                      Navigator.pushNamed(
+                        context,
+                        ArticleWebView.routeName,
+                        arguments: article.articleUrl,
+                      );
                     },
                   ),
                 ],
@@ -69,5 +72,3 @@ class ArticleDetailPage extends StatelessWidget {
     );
   }
 }
-
-
