@@ -43,7 +43,7 @@ class _BelajarFormState extends State<BelajarForm> {
                           borderRadius: new BorderRadius.circular(5.0)),
                     ),
                     validator: (value) {
-                      if (value.isEmpty) {
+                      if (value?.isEmpty ?? true) {
                         return 'Nama tidak boleh kosong';
                       }
                       return null;
@@ -61,7 +61,7 @@ class _BelajarFormState extends State<BelajarForm> {
                           borderRadius: new BorderRadius.circular(5.0)),
                     ),
                     validator: (value) {
-                      if (value.isEmpty) {
+                      if (value?.isEmpty ?? true) {
                         return 'Password tidak boleh kosong';
                       }
                       return null;
@@ -75,7 +75,7 @@ class _BelajarFormState extends State<BelajarForm> {
                   activeColor: Colors.deepPurpleAccent,
                   onChanged: (value) {
                     setState(() {
-                      nilaiCheckBox = value;
+                      nilaiCheckBox = value!;
                     });
                   },
                 ),
@@ -108,7 +108,7 @@ class _BelajarFormState extends State<BelajarForm> {
                   ),
                   color: Colors.blue,
                   onPressed: () {
-                    if (_formKey.currentState.validate()) {}
+                    if (_formKey.currentState?.validate() ?? false) {}
                   },
                 ),
               ],
